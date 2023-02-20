@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.hr.mapper.HrEmployeeRemoveMapper">
+
+    <resultMap type="HrEmployeeRemove" id="HrEmployeeRemoveResult">
+        <result property="id"    column="id"    />
+        <result property="employeeId"    column="employee_id"    />
+        <result property="beforeDeptId"    column="before_dept_id"    />
+        <result property="beforePostId"    column="before_post_id"    />
+        <result property="afterDeptId"    column="after_dept_id"    />
+        <result property="afterPostId"    column="after_post_id"    />
+        <result property="removeDate"    column="remove_date"    />
+        <result property="reason"    column="reason"    />
+        <result property="remark"    column="remark"    />
+        <result property="employeeName"    column="name"    />
+    </resultMap>
+
+    <sql id="selectHrEmployeeRemoveVo">
+        select r.id, r.employee_id, r.before_dept_id, r.before_post_id, r.after_dept_id, r.after_post_id, r.remove_date, r.reason, r.remark,
+        e.name
+        from hr_employee_remove r
+        left join  hr_employee e on r.employee_id = e.employee_id
+    </sql>
+
+    <select id="selectHrEmployeeRemoveList" parameterType="HrEmployeeRemove" resultMap="HrEmployeeRemoveResult">
+        <include refid="selectHrEmployeeRemoveVo"/>
+        <where>
+            <if test="employeeId != null "> and r.employee_id = #{employeeId}</if>
+            <if test="employeeName != null  and employeeName != ''"> and e.name like concat('%', #{employeeName}, '%')</if>
+            <if test="beforeDeptId != null "> and r.before_dept_id = #{beforeDeptId}</if>
+            <if test="beforePostId != null "> and r.before_post_id = #{beforePostId}</if>
+            <if test="afterDeptId != null "> and r.after_dept_id = #{afterDeptId}</if>
+            <if test="afterPostId != null "> and r.after_post_id = #{afterPostId}</if>
+            <if test="removeDate != null "> and r.remove_date = #{removeDate}</if>
+            <if test="reason != null  and reason != ''"> and r.reason like concat('%', #{reason}, '%')</if>
+        </where>
+    </select>
+
+    <select id="selectHrEmployeeRemoveById" parameterType="Long" resultMap="HrEmployeeRemoveResult">
+        <include refid="selectHrEmployeeRemoveVo"/>
+        where r.id = #{id}
+    </select>
+
+    <insert id="insertHrEmployeeRemove" parameterType="HrEmployeeRemove" useGeneratedKeys="true" keyProperty="id">
+        insert into hr_employee_remove
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="employeeId != null">employee_id,</if>
+            <if test="beforeDeptId != null">before_dept_id,</if>
+            <if test="beforePostId != null">before_post_id,</if>
+            <if test="afterDeptId != null">after_dept_id,</if>
+            <if test="afterPostId != null">after_post_id,</if>
+            <if test="removeDate != null">remove_date,</if>
+            <if test="reason != null">reason,</if>
+            <if test="remark != null">remark,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="employeeId != null">#{employeeId},</if>
+            <if test="beforeDeptId != null">#{beforeDeptId},</if>
+            <if test="beforePostId != null">#{beforePostId},</if>
+            <if test="afterDeptId != null">#{afterDeptId},</if>
+            <if test="afterPostId != null">#{afterPostId},</if>
+            <if test="removeDate != null">#{removeDate},</if>
+            <if test="reason != null">#{reason},</if>
+            <if test="remark != null">#{remark},</if>
+        </trim>
+    </insert>
+
+    <update id="updateHrEmployeeRemove" parameterType="HrEmployeeRemove">
+        update hr_employee_remove
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="employeeId != null">employee_id = #{employeeId},</if>
+            <if test="beforeDeptId != null">before_dept_id = #{beforeDeptId},</if>
+            <if test="beforePostId != null">before_post_id = #{beforePostId},</if>
+            <if test="afterDeptId != null">after_dept_id = #{afterDeptId},</if>
+            <if test="afterPostId != null">after_post_id = #{afterPostId},</if>
+            <if test="removeDate != null">remove_date = #{removeDate},</if>
+            <if test="reason != null">reason = #{reason},</if>
+            <if test="remark != null">remark = #{remark},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteHrEmployeeRemoveById" parameterType="Long">
+        delete from hr_employee_remove where id = #{id}
+    </delete>
+
+    <delete id="deleteHrEmployeeRemoveByIds" parameterType="String">
+        delete from hr_employee_remove where id in
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+</mapper>

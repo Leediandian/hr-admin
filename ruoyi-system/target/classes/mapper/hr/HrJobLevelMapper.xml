@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.hr.mapper.HrJobLevelMapper">
+    
+    <resultMap type="HrJobLevel" id="HrJobLevelResult">
+        <result property="jobLevelId"    column="job_level_id"    />
+        <result property="jobLevelName"    column="job_level_name"    />
+        <result property="titleLevel"    column="title_level"    />
+        <result property="createTime"    column="create_time"    />
+        <result property="updateTime"    column="update_time"    />
+        <result property="status"    column="status"    />
+    </resultMap>
+
+    <sql id="selectHrJobLevelVo">
+        select job_level_id, job_level_name, title_level, create_time, update_time, status from hr_job_level
+    </sql>
+
+    <select id="selectHrJobLevelList" parameterType="HrJobLevel" resultMap="HrJobLevelResult">
+        <include refid="selectHrJobLevelVo"/>
+        <where>  
+            <if test="jobLevelName != null  and jobLevelName != ''"> and job_level_name like concat('%', #{jobLevelName}, '%')</if>
+            <if test="titleLevel != null  and titleLevel != ''"> and title_level = #{titleLevel}</if>
+            <if test="status != null "> and status = #{status}</if>
+        </where>
+    </select>
+    
+    <select id="selectHrJobLevelByJobLevelId" parameterType="Long" resultMap="HrJobLevelResult">
+        <include refid="selectHrJobLevelVo"/>
+        where job_level_id = #{jobLevelId}
+    </select>
+        
+    <insert id="insertHrJobLevel" parameterType="HrJobLevel" useGeneratedKeys="true" keyProperty="jobLevelId">
+        insert into hr_job_level
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="jobLevelName != null">job_level_name,</if>
+            <if test="titleLevel != null">title_level,</if>
+            <if test="createTime != null">create_time,</if>
+            <if test="updateTime != null">update_time,</if>
+            <if test="status != null">status,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="jobLevelName != null">#{jobLevelName},</if>
+            <if test="titleLevel != null">#{titleLevel},</if>
+            <if test="createTime != null">#{createTime},</if>
+            <if test="updateTime != null">#{updateTime},</if>
+            <if test="status != null">#{status},</if>
+         </trim>
+    </insert>
+
+    <update id="updateHrJobLevel" parameterType="HrJobLevel">
+        update hr_job_level
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="jobLevelName != null">job_level_name = #{jobLevelName},</if>
+            <if test="titleLevel != null">title_level = #{titleLevel},</if>
+            <if test="createTime != null">create_time = #{createTime},</if>
+            <if test="updateTime != null">update_time = #{updateTime},</if>
+            <if test="status != null">status = #{status},</if>
+        </trim>
+        where job_level_id = #{jobLevelId}
+    </update>
+
+    <delete id="deleteHrJobLevelByJobLevelId" parameterType="Long">
+        delete from hr_job_level where job_level_id = #{jobLevelId}
+    </delete>
+
+    <delete id="deleteHrJobLevelByJobLevelIds" parameterType="String">
+        delete from hr_job_level where job_level_id in 
+        <foreach item="jobLevelId" collection="array" open="(" separator="," close=")">
+            #{jobLevelId}
+        </foreach>
+    </delete>
+</mapper>
