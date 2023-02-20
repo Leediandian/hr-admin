@@ -36,16 +36,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="jobLevelName != null">job_level_name,</if>
             <if test="titleLevel != null">title_level,</if>
-            <if test="createTime != null">create_time,</if>
-            <if test="updateTime != null">update_time,</if>
             <if test="status != null">status,</if>
+            create_time
          </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
             <if test="jobLevelName != null">#{jobLevelName},</if>
             <if test="titleLevel != null">#{titleLevel},</if>
-            <if test="createTime != null">#{createTime},</if>
-            <if test="updateTime != null">#{updateTime},</if>
             <if test="status != null">#{status},</if>
+            sysdate()
          </trim>
     </insert>
 
@@ -54,9 +52,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <trim prefix="SET" suffixOverrides=",">
             <if test="jobLevelName != null">job_level_name = #{jobLevelName},</if>
             <if test="titleLevel != null">title_level = #{titleLevel},</if>
-            <if test="createTime != null">create_time = #{createTime},</if>
-            <if test="updateTime != null">update_time = #{updateTime},</if>
             <if test="status != null">status = #{status},</if>
+            update_time = sysdate()
         </trim>
         where job_level_id = #{jobLevelId}
     </update>

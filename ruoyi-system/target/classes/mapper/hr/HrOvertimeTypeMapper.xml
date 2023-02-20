@@ -39,17 +39,15 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="code != null">code,</if>
             <if test="name != null">name,</if>
             <if test="status != null">status,</if>
-            <if test="createTime != null">create_time,</if>
-            <if test="updateTime != null">update_time,</if>
             <if test="lowerLimit != null">lower_limit,</if>
+            create_time
          </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
             <if test="code != null">#{code},</if>
             <if test="name != null">#{name},</if>
             <if test="status != null">#{status},</if>
-            <if test="createTime != null">#{createTime},</if>
-            <if test="updateTime != null">#{updateTime},</if>
             <if test="lowerLimit != null">#{lowerLimit},</if>
+            sysdate()
          </trim>
     </insert>
 
@@ -59,9 +57,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="code != null">code = #{code},</if>
             <if test="name != null">name = #{name},</if>
             <if test="status != null">status = #{status},</if>
-            <if test="createTime != null">create_time = #{createTime},</if>
-            <if test="updateTime != null">update_time = #{updateTime},</if>
             <if test="lowerLimit != null">lower_limit = #{lowerLimit},</if>
+            update_time = sysdate()
         </trim>
         where overtime_type_id = #{overtimeTypeId}
     </update>

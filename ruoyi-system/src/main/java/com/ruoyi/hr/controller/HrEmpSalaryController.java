@@ -77,6 +77,12 @@ public class HrEmpSalaryController extends BaseController
     @PostMapping
     public AjaxResult add(@RequestBody HrEmpSalary hrEmpSalary)
     {
+        HrEmpSalary item = new HrEmpSalary();
+        item.setEmployeeId(hrEmpSalary.getEmployeeId());
+        List<HrEmpSalary> list = hrEmpSalaryService.selectHrEmpSalaryList(item);
+        if(list.size()>0){
+            return error("当前员工"+hrEmpSalary.getEmployeeName()+"已绑定薪资账套");
+        }
         return toAjax(hrEmpSalaryService.insertHrEmpSalary(hrEmpSalary));
     }
 

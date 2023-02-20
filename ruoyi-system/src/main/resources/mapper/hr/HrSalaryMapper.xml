@@ -62,12 +62,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="allSalary != null">all_salary,</if>
             <if test="pensionBase != null">pension_base,</if>
             <if test="pensionPer != null">pension_per,</if>
-            <if test="createTime != null">create_time,</if>
-            <if test="updateTime != null">update_time,</if>
             <if test="medicalBase != null">medical_base,</if>
             <if test="medicalPer != null">medical_per,</if>
             <if test="accumulationFundbase != null">accumulation_fundbase,</if>
             <if test="accumulationFundper != null">accumulation_fundper,</if>
+            create_time
          </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
             <if test="salaryName != null">#{salaryName},</if>
@@ -78,12 +77,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="allSalary != null">#{allSalary},</if>
             <if test="pensionBase != null">#{pensionBase},</if>
             <if test="pensionPer != null">#{pensionPer},</if>
-            <if test="createTime != null">#{createTime},</if>
-            <if test="updateTime != null">#{updateTime},</if>
             <if test="medicalBase != null">#{medicalBase},</if>
             <if test="medicalPer != null">#{medicalPer},</if>
             <if test="accumulationFundbase != null">#{accumulationFundbase},</if>
             <if test="accumulationFundper != null">#{accumulationFundper},</if>
+            sysdate()
          </trim>
     </insert>
 
@@ -98,12 +96,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="allSalary != null">all_salary = #{allSalary},</if>
             <if test="pensionBase != null">pension_base = #{pensionBase},</if>
             <if test="pensionPer != null">pension_per = #{pensionPer},</if>
-            <if test="createTime != null">create_time = #{createTime},</if>
-            <if test="updateTime != null">update_time = #{updateTime},</if>
             <if test="medicalBase != null">medical_base = #{medicalBase},</if>
             <if test="medicalPer != null">medical_per = #{medicalPer},</if>
             <if test="accumulationFundbase != null">accumulation_fundbase = #{accumulationFundbase},</if>
             <if test="accumulationFundper != null">accumulation_fundper = #{accumulationFundper},</if>
+            update_time = sysdate()
         </trim>
         where salary_id = #{salaryId}
     </update>

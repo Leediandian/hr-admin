@@ -1,6 +1,7 @@
 package com.ruoyi.hr.domain;
 
 import java.util.List;
+
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 import com.ruoyi.common.annotation.Excel;
@@ -8,73 +9,89 @@ import com.ruoyi.common.core.domain.BaseEntity;
 
 /**
  * 员工账套管理对象 hr_emp_salary
- * 
+ *
  * @author 点点
  * @date 2023-02-13
  */
-public class HrEmpSalary extends BaseEntity
-{
+public class HrEmpSalary extends BaseEntity {
     private static final long serialVersionUID = 1L;
 
-    /** 员工薪资编号 */
+    /**
+     * 员工薪资编号
+     */
     private Long id;
 
-    /** 员工编号 */
+    /**
+     * 薪资账套名称
+     */
+    @Excel(name = "薪资账套名称")
+    private String salaryName;
+    /**
+     * 员工名称
+     */
+    @Excel(name = "员工名称")
+    private String employeeName;
+
+    /**
+     * 员工编号
+     */
     @Excel(name = "员工编号")
     private Long employeeId;
 
-    /** 薪资编号 */
+    /**
+     * 薪资编号
+     */
     @Excel(name = "薪资编号")
     private Long salaryId;
 
-    /** 员工档案管理信息 */
-    private List<HrEmployee> hrEmployeeList;
-
-    public void setId(Long id) 
-    {
+    public void setId(Long id) {
         this.id = id;
     }
 
-    public Long getId() 
-    {
+    public Long getId() {
         return id;
     }
-    public void setEmployeeId(Long employeeId) 
-    {
+
+    public void setEmployeeId(Long employeeId) {
         this.employeeId = employeeId;
     }
 
-    public Long getEmployeeId() 
-    {
+    public Long getEmployeeId() {
         return employeeId;
     }
-    public void setSalaryId(Long salaryId) 
-    {
+
+    public void setSalaryId(Long salaryId) {
         this.salaryId = salaryId;
     }
 
-    public Long getSalaryId() 
-    {
+    public Long getSalaryId() {
         return salaryId;
     }
 
-    public List<HrEmployee> getHrEmployeeList()
-    {
-        return hrEmployeeList;
+    public String getSalaryName() {
+        return salaryName;
     }
 
-    public void setHrEmployeeList(List<HrEmployee> hrEmployeeList)
-    {
-        this.hrEmployeeList = hrEmployeeList;
+    public void setSalaryName(String salaryName) {
+        this.salaryName = salaryName;
+    }
+
+    public String getEmployeeName() {
+        return employeeName;
+    }
+
+    public void setEmployeeName(String employeeName) {
+        this.employeeName = employeeName;
     }
 
     @Override
     public String toString() {
-        return new ToStringBuilder(this,ToStringStyle.MULTI_LINE_STYLE)
-            .append("id", getId())
-            .append("employeeId", getEmployeeId())
-            .append("salaryId", getSalaryId())
-            .append("hrEmployeeList", getHrEmployeeList())
-            .toString();
+        return new ToStringBuilder(this, ToStringStyle.MULTI_LINE_STYLE)
+                .append("id", getId())
+                .append("employeeId", getEmployeeId())
+                .append("salaryId", getSalaryId())
+                .append("salaryName", getSalaryName())
+                .append("employeeName", getEmployeeName())
+                .toString();
     }
 }

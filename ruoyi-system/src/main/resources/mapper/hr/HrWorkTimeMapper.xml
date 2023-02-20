@@ -68,9 +68,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="aftEndTime != null">aft_end_time,</if>
             <if test="totalWorkTime != null">total_work_time,</if>
             <if test="remark != null">remark,</if>
-            <if test="createTime != null">create_time,</if>
-            <if test="updateTime != null">update_time,</if>
             <if test="status != null">status,</if>
+            create_time
          </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
             <if test="deptId != null">#{deptId},</if>
@@ -80,9 +79,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="aftEndTime != null">#{aftEndTime},</if>
             <if test="totalWorkTime != null">#{totalWorkTime},</if>
             <if test="remark != null">#{remark},</if>
-            <if test="createTime != null">#{createTime},</if>
-            <if test="updateTime != null">#{updateTime},</if>
             <if test="status != null">#{status},</if>
+            sysdate()
          </trim>
     </insert>
 
@@ -96,9 +94,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="aftEndTime != null">aft_end_time = #{aftEndTime},</if>
             <if test="totalWorkTime != null">total_work_time = #{totalWorkTime},</if>
             <if test="remark != null">remark = #{remark},</if>
-            <if test="createTime != null">create_time = #{createTime},</if>
-            <if test="updateTime != null">update_time = #{updateTime},</if>
             <if test="status != null">status = #{status},</if>
+            update_time = sysdate()
         </trim>
         where id = #{id}
     </update>

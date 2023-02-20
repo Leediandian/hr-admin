@@ -60,28 +60,6 @@ public interface HrEmpSalaryMapper
      */
     public int deleteHrEmpSalaryByIds(Long[] ids);
 
-    /**
-     * 批量删除员工档案管理
-     * 
-     * @param ids 需要删除的数据主键集合
-     * @return 结果
-     */
-    public int deleteHrEmployeeByEmployeeIds(Long[] ids);
-    
-    /**
-     * 批量新增员工档案管理
-     * 
-     * @param hrEmployeeList 员工档案管理列表
-     * @return 结果
-     */
-    public int batchHrEmployee(List<HrEmployee> hrEmployeeList);
-    
 
-    /**
-     * 通过员工账套管理主键删除员工档案管理信息
-     * 
-     * @param id 员工账套管理ID
-     * @return 结果
-     */
-    public int deleteHrEmployeeByEmployeeId(Long id);
+
 }
