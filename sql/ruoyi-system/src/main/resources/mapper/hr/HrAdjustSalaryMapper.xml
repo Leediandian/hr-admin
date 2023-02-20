@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.hr.mapper.HrAdjustSalaryMapper">
+    
+    <resultMap type="HrAdjustSalary" id="HrAdjustSalaryResult">
+        <result property="id"    column="id"    />
+        <result property="employeeId"    column="employee_id"    />
+        <result property="asDate"    column="as_date"    />
+        <result property="beforeSalary"    column="before_salary"    />
+        <result property="afterSalary"    column="after_salary"    />
+        <result property="reason"    column="reason"    />
+        <result property="remark"    column="remark"    />
+    </resultMap>
+
+    <resultMap id="HrAdjustSalaryHrEmployeeResult" type="HrAdjustSalary" extends="HrAdjustSalaryResult">
+        <collection property="hrEmployeeList" notNullColumn="sub_employee_id" javaType="java.util.List" resultMap="HrEmployeeResult" />
+    </resultMap>
+
+    <resultMap type="HrEmployee" id="HrEmployeeResult">
+        <result property="employeeId"    column="sub_employee_id"    />
+        <result property="name"    column="sub_name"    />
+        <result property="gender"    column="sub_gender"    />
+        <result property="birthday"    column="sub_birthday"    />
+        <result property="idCard"    column="sub_id_card"    />
+        <result property="wedlock"    column="sub_wedlock"    />
+        <result property="nation"    column="sub_nation"    />
+        <result property="nativePlace"    column="sub_native_place"    />
+        <result property="politic"    column="sub_politic"    />
+        <result property="email"    column="sub_email"    />
+        <result property="phone"    column="sub_phone"    />
+        <result property="address"    column="sub_address"    />
+        <result property="deptId"    column="sub_dept_id"    />
+        <result property="jobLevelId"    column="sub_job_level_id"    />
+        <result property="postId"    column="sub_post_id"    />
+        <result property="engageForm"    column="sub_engage_form"    />
+        <result property="tiptopDegree"    column="sub_tiptop_degree"    />
+        <result property="specialty"    column="sub_specialty"    />
+        <result property="school"    column="sub_school"    />
+        <result property="beginDate"    column="sub_begin_date"    />
+        <result property="workState"    column="sub_work_state"    />
+        <result property="workId"    column="sub_work_id"    />
+        <result property="contractTerm"    column="sub_contract_term"    />
+        <result property="conversionTime"    column="sub_conversion_time"    />
+        <result property="notWorkDate"    column="sub_not_work_date"    />
+        <result property="beginContract"    column="sub_begin_contract"    />
+        <result property="endContract"    column="sub_end_contract"    />
+        <result property="workAge"    column="sub_work_age"    />
+    </resultMap>
+
+    <sql id="selectHrAdjustSalaryVo">
+        select id, employee_id, as_date, before_salary, after_salary, reason, remark from hr_adjust_salary
+    </sql>
+
+    <select id="selectHrAdjustSalaryList" parameterType="HrAdjustSalary" resultMap="HrAdjustSalaryResult">
+        <include refid="selectHrAdjustSalaryVo"/>
+        <where>  
+            <if test="employeeId != null "> and employee_id = #{employeeId}</if>
+            <if test="asDate != null "> and as_date = #{asDate}</if>
+            <if test="beforeSalary != null "> and before_salary = #{beforeSalary}</if>
+            <if test="afterSalary != null "> and after_salary = #{afterSalary}</if>
+            <if test="reason != null  and reason != ''"> and reason = #{reason}</if>
+        </where>
+    </select>
+    
+    <select id="selectHrAdjustSalaryById" parameterType="Long" resultMap="HrAdjustSalaryHrEmployeeResult">
+        select a.id, a.employee_id, a.as_date, a.before_salary, a.after_salary, a.reason, a.remark,
+ b.employee_id as sub_employee_id, b.name as sub_name, b.gender as sub_gender, b.birthday as sub_birthday, b.id_card as sub_id_card, b.wedlock as sub_wedlock, b.nation as sub_nation, b.native_place as sub_native_place, b.politic as sub_politic, b.email as sub_email, b.phone as sub_phone, b.address as sub_address, b.dept_id as sub_dept_id, b.job_level_id as sub_job_level_id, b.post_id as sub_post_id, b.engage_form as sub_engage_form, b.tiptop_degree as sub_tiptop_degree, b.specialty as sub_specialty, b.school as sub_school, b.begin_date as sub_begin_date, b.work_state as sub_work_state, b.work_id as sub_work_id, b.contract_term as sub_contract_term, b.conversion_time as sub_conversion_time, b.not_work_date as sub_not_work_date, b.begin_contract as sub_begin_contract, b.end_contract as sub_end_contract, b.work_age as sub_work_age
+        from hr_adjust_salary a
+        left join hr_employee b on b.employee_id = a.id
+        where a.id = #{id}
+    </select>
+        
+    <insert id="insertHrAdjustSalary" parameterType="HrAdjustSalary" useGeneratedKeys="true" keyProperty="id">
+        insert into hr_adjust_salary
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="employeeId != null">employee_id,</if>
+            <if test="asDate != null">as_date,</if>
+            <if test="beforeSalary != null">before_salary,</if>
+            <if test="afterSalary != null">after_salary,</if>
+            <if test="reason != null">reason,</if>
+            <if test="remark != null">remark,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="employeeId != null">#{employeeId},</if>
+            <if test="asDate != null">#{asDate},</if>
+            <if test="beforeSalary != null">#{beforeSalary},</if>
+            <if test="afterSalary != null">#{afterSalary},</if>
+            <if test="reason != null">#{reason},</if>
+            <if test="remark != null">#{remark},</if>
+         </trim>
+    </insert>
+
+    <update id="updateHrAdjustSalary" parameterType="HrAdjustSalary">
+        update hr_adjust_salary
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="employeeId != null">employee_id = #{employeeId},</if>
+            <if test="asDate != null">as_date = #{asDate},</if>
+            <if test="beforeSalary != null">before_salary = #{beforeSalary},</if>
+            <if test="afterSalary != null">after_salary = #{afterSalary},</if>
+            <if test="reason != null">reason = #{reason},</if>
+            <if test="remark != null">remark = #{remark},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteHrAdjustSalaryById" parameterType="Long">
+        delete from hr_adjust_salary where id = #{id}
+    </delete>
+
+    <delete id="deleteHrAdjustSalaryByIds" parameterType="String">
+        delete from hr_adjust_salary where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+    
+    <delete id="deleteHrEmployeeByEmployeeIds" parameterType="String">
+        delete from hr_employee where employee_id in 
+        <foreach item="employeeId" collection="array" open="(" separator="," close=")">
+            #{employeeId}
+        </foreach>
+    </delete>
+
+    <delete id="deleteHrEmployeeByEmployeeId" parameterType="Long">
+        delete from hr_employee where employee_id = #{employeeId}
+    </delete>
+
+    <insert id="batchHrEmployee">
+        insert into hr_employee( employee_id, name, gender, birthday, id_card, wedlock, nation, native_place, politic, email, phone, address, dept_id, job_level_id, post_id, engage_form, tiptop_degree, specialty, school, begin_date, work_state, work_id, contract_term, conversion_time, not_work_date, begin_contract, end_contract, work_age) values
+		<foreach item="item" index="index" collection="list" separator=",">
+            ( #{item.employeeId}, #{item.name}, #{item.gender}, #{item.birthday}, #{item.idCard}, #{item.wedlock}, #{item.nation}, #{item.nativePlace}, #{item.politic}, #{item.email}, #{item.phone}, #{item.address}, #{item.deptId}, #{item.jobLevelId}, #{item.postId}, #{item.engageForm}, #{item.tiptopDegree}, #{item.specialty}, #{item.school}, #{item.beginDate}, #{item.workState}, #{item.workId}, #{item.contractTerm}, #{item.conversionTime}, #{item.notWorkDate}, #{item.beginContract}, #{item.endContract}, #{item.workAge})
+        </foreach>
+    </insert>
+</mapper>
