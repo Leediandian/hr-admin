@@ -11,11 +11,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <result property="status"    column="status"    />
         <result property="createTime"    column="create_time"    />
         <result property="updateTime"    column="update_time"    />
-        <result property="lowerLimit"    column="lower_limit"    />
     </resultMap>
 
     <sql id="selectHrOvertimeTypeVo">
-        select overtime_type_id, code, name, status, create_time, update_time, lower_limit from hr_overtime_type
+        select overtime_type_id, code, name, status, create_time, update_time from hr_overtime_type
     </sql>
 
     <select id="selectHrOvertimeTypeList" parameterType="HrOvertimeType" resultMap="HrOvertimeTypeResult">
@@ -24,7 +23,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="code != null  and code != ''"> and code = #{code}</if>
             <if test="name != null  and name != ''"> and name like concat('%', #{name}, '%')</if>
             <if test="status != null "> and status = #{status}</if>
-            <if test="lowerLimit != null "> and lower_limit = #{lowerLimit}</if>
         </where>
     </select>
     
@@ -39,14 +37,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="code != null">code,</if>
             <if test="name != null">name,</if>
             <if test="status != null">status,</if>
-            <if test="lowerLimit != null">lower_limit,</if>
             create_time
          </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
             <if test="code != null">#{code},</if>
             <if test="name != null">#{name},</if>
             <if test="status != null">#{status},</if>
-            <if test="lowerLimit != null">#{lowerLimit},</if>
             sysdate()
          </trim>
     </insert>
@@ -57,7 +53,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="code != null">code = #{code},</if>
             <if test="name != null">name = #{name},</if>
             <if test="status != null">status = #{status},</if>
-            <if test="lowerLimit != null">lower_limit = #{lowerLimit},</if>
             update_time = sysdate()
         </trim>
         where overtime_type_id = #{overtimeTypeId}

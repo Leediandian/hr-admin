@@ -72,22 +72,4 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             #{id}
         </foreach>
     </delete>
-    
-    <delete id="deleteHrEmployeeByEmployeeIds" parameterType="String">
-        delete from hr_employee where employee_id in 
-        <foreach item="employeeId" collection="array" open="(" separator="," close=")">
-            #{employeeId}
-        </foreach>
-    </delete>
-
-    <delete id="deleteHrEmployeeByEmployeeId" parameterType="Long">
-        delete from hr_employee where employee_id = #{employeeId}
-    </delete>
-
-    <insert id="batchHrEmployee">
-        insert into hr_employee( employee_id, name, gender, birthday, id_card, wedlock, nation, native_place, politic, email, phone, address, dept_id, job_level_id, post_id, engage_form, tiptop_degree, specialty, school, begin_date, work_state, work_id, contract_term, conversion_time, not_work_date, begin_contract, end_contract, work_age) values
-		<foreach item="item" index="index" collection="list" separator=",">
-            ( #{item.employeeId}, #{item.name}, #{item.gender}, #{item.birthday}, #{item.idCard}, #{item.wedlock}, #{item.nation}, #{item.nativePlace}, #{item.politic}, #{item.email}, #{item.phone}, #{item.address}, #{item.deptId}, #{item.jobLevelId}, #{item.postId}, #{item.engageForm}, #{item.tiptopDegree}, #{item.specialty}, #{item.school}, #{item.beginDate}, #{item.workState}, #{item.workId}, #{item.contractTerm}, #{item.conversionTime}, #{item.notWorkDate}, #{item.beginContract}, #{item.endContract}, #{item.workAge})
-        </foreach>
-    </insert>
 </mapper>

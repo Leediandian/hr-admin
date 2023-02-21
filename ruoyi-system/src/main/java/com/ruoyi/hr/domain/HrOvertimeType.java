@@ -41,11 +41,6 @@ public class HrOvertimeType extends BaseEntity {
     @Excel(name = "状态", readConverterExp = "0=正常,1=停用")
     private String status;
 
-    /**
-     * 工资倍数下限
-     */
-    @Excel(name = "工资倍数下限")
-    private BigDecimal lowerLimit;
 
     public void setOvertimeTypeId(Long overtimeTypeId) {
         this.overtimeTypeId = overtimeTypeId;
@@ -71,14 +66,6 @@ public class HrOvertimeType extends BaseEntity {
         return name;
     }
 
-    public void setLowerLimit(BigDecimal lowerLimit) {
-        this.lowerLimit = lowerLimit;
-    }
-
-    public BigDecimal getLowerLimit() {
-        return lowerLimit;
-    }
-
     public String getStatus() {
         return status;
     }
@@ -97,7 +84,6 @@ public class HrOvertimeType extends BaseEntity {
                 .append("status", getStatus())
                 .append("createTime", getCreateTime())
                 .append("updateTime", getUpdateTime())
-                .append("lowerLimit", getLowerLimit())
                 .toString();
     }
 }

@@ -35,6 +35,17 @@ public class HrOvertimeTypeController extends BaseController
     private IHrOvertimeTypeService hrOvertimeTypeService;
 
     /**
+     * 查询全部加班类型列表
+     */
+    @PreAuthorize("@ss.hasPermi('hr:overtimeType:allList')")
+    @GetMapping("/allList")
+    public AjaxResult allList(HrOvertimeType hrOvertimeType)
+    {
+        List<HrOvertimeType> list = hrOvertimeTypeService.selectHrOvertimeTypeList(hrOvertimeType);
+        return success(list);
+    }
+
+    /**
      * 查询加班类型列表
      */
     @PreAuthorize("@ss.hasPermi('hr:overtimeType:list')")

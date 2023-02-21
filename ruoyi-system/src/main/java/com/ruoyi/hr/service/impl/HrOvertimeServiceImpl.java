@@ -60,7 +60,6 @@ public class HrOvertimeServiceImpl implements IHrOvertimeService
     {
         hrOvertime.setCreateTime(DateUtils.getNowDate());
         int rows = hrOvertimeMapper.insertHrOvertime(hrOvertime);
-        insertHrEmployee(hrOvertime);
         return rows;
     }
 
@@ -75,8 +74,6 @@ public class HrOvertimeServiceImpl implements IHrOvertimeService
     public int updateHrOvertime(HrOvertime hrOvertime)
     {
         hrOvertime.setUpdateTime(DateUtils.getNowDate());
-        hrOvertimeMapper.deleteHrEmployeeByEmployeeId(hrOvertime.getId());
-        insertHrEmployee(hrOvertime);
         return hrOvertimeMapper.updateHrOvertime(hrOvertime);
     }
 
@@ -90,7 +87,6 @@ public class HrOvertimeServiceImpl implements IHrOvertimeService
     @Override
     public int deleteHrOvertimeByIds(Long[] ids)
     {
-        hrOvertimeMapper.deleteHrEmployeeByEmployeeIds(ids);
         return hrOvertimeMapper.deleteHrOvertimeByIds(ids);
     }
 
@@ -104,31 +100,8 @@ public class HrOvertimeServiceImpl implements IHrOvertimeService
     @Override
     public int deleteHrOvertimeById(Long id)
     {
-        hrOvertimeMapper.deleteHrEmployeeByEmployeeId(id);
         return hrOvertimeMapper.deleteHrOvertimeById(id);
     }
 
-    /**
-     * 新增员工档案管理信息
-     * 
-     * @param hrOvertime 员工加班管理对象
-     */
-    public void insertHrEmployee(HrOvertime hrOvertime)
-    {
-        List<HrEmployee> hrEmployeeList = hrOvertime.getHrEmployeeList();
-        Long id = hrOvertime.getId();
-        if (StringUtils.isNotNull(hrEmployeeList))
-        {
-            List<HrEmployee> list = new ArrayList<HrEmployee>();
-            for (HrEmployee hrEmployee : hrEmployeeList)
-            {
-                hrEmployee.setEmployeeId(id);
-                list.add(hrEmployee);
-            }
-            if (list.size() > 0)
-            {
-                hrOvertimeMapper.batchHrEmployee(list);
-            }
-        }
-    }
+
 }
