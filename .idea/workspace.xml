@@ -3,22 +3,13 @@
   <component name="ChangeListManager">
     <list default="true" id="fbfea2a8-b947-4fed-a68b-10442c9c2ff3" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-system/src/main/java/com/ruoyi/hr/controller/HrOvertimeTypeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-system/src/main/java/com/ruoyi/hr/controller/HrOvertimeTypeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-system/src/main/java/com/ruoyi/hr/domain/HrOvertime.java" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-system/src/main/java/com/ruoyi/hr/domain/HrOvertime.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-system/src/main/java/com/ruoyi/hr/domain/HrOvertimeType.java" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-system/src/main/java/com/ruoyi/hr/domain/HrOvertimeType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-system/src/main/java/com/ruoyi/hr/mapper/HrOvertimeMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-system/src/main/java/com/ruoyi/hr/mapper/HrOvertimeMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-system/src/main/java/com/ruoyi/hr/service/impl/HrOvertimeServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-system/src/main/java/com/ruoyi/hr/service/impl/HrOvertimeServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-system/src/main/resources/mapper/hr/HrEmpSalaryMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-system/src/main/resources/mapper/hr/HrEmpSalaryMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-system/src/main/resources/mapper/hr/HrOvertimeMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-system/src/main/resources/mapper/hr/HrOvertimeMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-system/src/main/resources/mapper/hr/HrOvertimeTypeMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-system/src/main/resources/mapper/hr/HrOvertimeTypeMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-system/target/classes/com/ruoyi/hr/controller/HrOvertimeTypeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-system/target/classes/com/ruoyi/hr/controller/HrOvertimeTypeController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-system/target/classes/com/ruoyi/hr/domain/HrOvertime.class" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-system/target/classes/com/ruoyi/hr/domain/HrOvertime.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-system/target/classes/com/ruoyi/hr/domain/HrOvertimeType.class" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-system/target/classes/com/ruoyi/hr/domain/HrOvertimeType.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-system/target/classes/com/ruoyi/hr/mapper/HrOvertimeMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-system/target/classes/com/ruoyi/hr/mapper/HrOvertimeMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-system/target/classes/com/ruoyi/hr/service/impl/HrOvertimeServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-system/target/classes/com/ruoyi/hr/service/impl/HrOvertimeServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-system/target/classes/mapper/hr/HrEmpSalaryMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-system/target/classes/mapper/hr/HrEmpSalaryMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-system/target/classes/mapper/hr/HrOvertimeMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-system/target/classes/mapper/hr/HrOvertimeMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-system/target/classes/mapper/hr/HrOvertimeTypeMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-system/target/classes/mapper/hr/HrOvertimeTypeMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ruoyi-system/src/main/java/com/ruoyi/hr/controller/HrLeaveController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-system/src/main/java/com/ruoyi/hr/controller/HrLeaveController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ruoyi-system/src/main/java/com/ruoyi/hr/domain/HrLeave.java" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-system/src/main/java/com/ruoyi/hr/domain/HrLeave.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ruoyi-system/src/main/java/com/ruoyi/hr/mapper/HrLeaveMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-system/src/main/java/com/ruoyi/hr/mapper/HrLeaveMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ruoyi-system/src/main/java/com/ruoyi/hr/service/IHrLeaveService.java" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-system/src/main/java/com/ruoyi/hr/service/IHrLeaveService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ruoyi-system/src/main/java/com/ruoyi/hr/service/impl/HrLeaveServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-system/src/main/java/com/ruoyi/hr/service/impl/HrLeaveServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ruoyi-system/src/main/resources/mapper/hr/HrLeaveMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-system/src/main/resources/mapper/hr/HrLeaveMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ruoyi-system/target/classes/com/ruoyi/hr/service/impl/HrLeaveServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-system/target/classes/com/ruoyi/hr/service/impl/HrLeaveServiceImpl.class" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -79,7 +70,7 @@
       <updated>1676883214773</updated>
       <workItem from="1676883216533" duration="7131000" />
       <workItem from="1676899486792" duration="2766000" />
-      <workItem from="1676940424886" duration="6954000" />
+      <workItem from="1676940424886" duration="11731000" />
     </task>
     <servers />
   </component>

@@ -5,15 +5,15 @@ import com.ruoyi.hr.domain.HrLeave;
 
 /**
  * 请假审批管理Service接口
- * 
+ *
  * @author 点点
- * @date 2023-02-13
+ * @date 2023-02-21
  */
-public interface IHrLeaveService 
+public interface IHrLeaveService
 {
     /**
      * 查询请假审批管理
-     * 
+     *
      * @param leaveId 请假审批管理主键
      * @return 请假审批管理
      */
@@ -21,7 +21,7 @@ public interface IHrLeaveService
 
     /**
      * 查询请假审批管理列表
-     * 
+     *
      * @param hrLeave 请假审批管理
      * @return 请假审批管理集合
      */
@@ -29,7 +29,7 @@ public interface IHrLeaveService
 
     /**
      * 新增请假审批管理
-     * 
+     *
      * @param hrLeave 请假审批管理
      * @return 结果
      */
@@ -37,7 +37,7 @@ public interface IHrLeaveService
 
     /**
      * 修改请假审批管理
-     * 
+     *
      * @param hrLeave 请假审批管理
      * @return 结果
      */
@@ -45,7 +45,7 @@ public interface IHrLeaveService
 
     /**
      * 批量删除请假审批管理
-     * 
+     *
      * @param leaveIds 需要删除的请假审批管理主键集合
      * @return 结果
      */
@@ -53,7 +53,7 @@ public interface IHrLeaveService
 
     /**
      * 删除请假审批管理信息
-     * 
+     *
      * @param leaveId 请假审批管理主键
      * @return 结果
      */

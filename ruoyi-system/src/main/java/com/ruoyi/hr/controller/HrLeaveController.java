@@ -23,9 +23,9 @@ import com.ruoyi.common.core.page.TableDataInfo;
 
 /**
  * 请假审批管理Controller
- * 
+ *
  * @author 点点
- * @date 2023-02-13
+ * @date 2023-02-21
  */
 @RestController
 @RequestMapping("/hr/leave")
@@ -96,7 +96,7 @@ public class HrLeaveController extends BaseController
      */
     @PreAuthorize("@ss.hasPermi('hr:leave:remove')")
     @Log(title = "请假审批管理", businessType = BusinessType.DELETE)
-	@DeleteMapping("/{leaveIds}")
+    @DeleteMapping("/{leaveIds}")
     public AjaxResult remove(@PathVariable Long[] leaveIds)
     {
         return toAjax(hrLeaveService.deleteHrLeaveByLeaveIds(leaveIds));
