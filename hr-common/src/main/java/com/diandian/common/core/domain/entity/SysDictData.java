@@ -12,7 +12,7 @@ import com.diandian.common.core.domain.BaseEntity;
 /**
  * 字典数据表 sys_dict_data
  * 
- * @author ruoyi
+ * @author diandian
  */
 public class SysDictData extends BaseEntity
 {

@@ -1,4 +1,4 @@
-package com.diandain.web.controller.common;
+package com.diandian.web.controller.common;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,7 +19,7 @@ import com.diandian.common.core.domain.AjaxResult;
 import com.diandian.common.utils.StringUtils;
 import com.diandian.common.utils.file.FileUploadUtils;
 import com.diandian.common.utils.file.FileUtils;
-import com.diandain.framework.config.ServerConfig;
+import com.diandian.framework.config.ServerConfig;
 
 /**
  * 通用请求处理

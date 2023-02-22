@@ -10,7 +10,7 @@ import com.diandian.system.service.ISysNoticeService;
 /**
  * 公告 服务层实现
  * 
- * @author ruoyi
+ * @author diandian
  */
 @Service
 public class SysNoticeServiceImpl implements ISysNoticeService

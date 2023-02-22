@@ -4,16 +4,15 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	
-    <groupId>com.ruoyi</groupId>
-    <artifactId>ruoyi</artifactId>
-    <version>3.8.5</version>
+    <groupId>com.hr</groupId>
+    <artifactId>hr</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
 
-    <name>ruoyi</name>
-    <url>http://www.ruoyi.vip</url>
-    <description>若依管理系统</description>
+    <name>humanResource-admin</name>
+    <description>人力资源管理系统</description>
     
     <properties>
-        <ruoyi.version>3.8.5</ruoyi.version>
+        <hr.version>0.0.1-SNAPSHOT</hr.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
@@ -145,49 +144,49 @@
 
             <!-- 定时任务-->
             <dependency>
-                <groupId>com.ruoyi</groupId>
-                <artifactId>ruoyi-quartz</artifactId>
-                <version>${ruoyi.version}</version>
+                <groupId>com.hr</groupId>
+                <artifactId>hr-quartz</artifactId>
+                <version>${hr.version}</version>
             </dependency>
 
             <!-- 代码生成-->
             <dependency>
-                <groupId>com.ruoyi</groupId>
-                <artifactId>ruoyi-generator</artifactId>
-                <version>${ruoyi.version}</version>
+                <groupId>com.hr</groupId>
+                <artifactId>hr-generator</artifactId>
+                <version>${hr.version}</version>
             </dependency>
 
             <!-- 核心模块-->
             <dependency>
-                <groupId>com.ruoyi</groupId>
-                <artifactId>ruoyi-framework</artifactId>
-                <version>${ruoyi.version}</version>
+                <groupId>com.hr</groupId>
+                <artifactId>hr-framework</artifactId>
+                <version>${hr.version}</version>
             </dependency>
 
             <!-- 系统模块-->
             <dependency>
-                <groupId>com.ruoyi</groupId>
-                <artifactId>ruoyi-system</artifactId>
-                <version>${ruoyi.version}</version>
+                <groupId>com.hr</groupId>
+                <artifactId>hr-system</artifactId>
+                <version>${hr.version}</version>
             </dependency>
 
             <!-- 通用工具-->
             <dependency>
-                <groupId>com.ruoyi</groupId>
-                <artifactId>ruoyi-common</artifactId>
-                <version>${ruoyi.version}</version>
+                <groupId>com.hr</groupId>
+                <artifactId>hr-common</artifactId>
+                <version>${hr.version}</version>
             </dependency>
 
         </dependencies>
     </dependencyManagement>
 
     <modules>
-        <module>ruoyi-admin</module>
-        <module>ruoyi-framework</module>
-        <module>ruoyi-system</module>
-        <module>ruoyi-quartz</module>
-        <module>ruoyi-generator</module>
-        <module>ruoyi-common</module>
+        <module>hr-admin</module>
+        <module>hr-framework</module>
+        <module>hr-system</module>
+        <module>hr-quartz</module>
+        <module>hr-generator</module>
+        <module>hr-common</module>
     </modules>
     <packaging>pom</packaging>
 

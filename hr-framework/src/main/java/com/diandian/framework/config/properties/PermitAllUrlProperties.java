@@ -1,4 +1,4 @@
-package com.diandain.framework.config.properties;
+package com.diandian.framework.config.properties;
 
 import java.util.ArrayList;
 import java.util.List;

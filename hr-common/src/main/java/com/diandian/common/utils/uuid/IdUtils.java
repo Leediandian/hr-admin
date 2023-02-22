@@ -3,7 +3,7 @@ package com.diandian.common.utils.uuid;
 /**
  * ID生成器工具类
  * 
- * @author ruoyi
+ * @author diandian
  */
 public class IdUtils
 {

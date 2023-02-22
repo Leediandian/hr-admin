@@ -1,4 +1,4 @@
-package com.diandain.framework.aspectj;
+package com.diandian.framework.aspectj;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,7 +14,7 @@ import com.diandian.common.core.domain.model.LoginUser;
 import com.diandian.common.core.text.Convert;
 import com.diandian.common.utils.SecurityUtils;
 import com.diandian.common.utils.StringUtils;
-import com.diandain.framework.security.context.PermissionContextHolder;
+import com.diandian.framework.security.context.PermissionContextHolder;
 
 /**
  * 数据过滤处理

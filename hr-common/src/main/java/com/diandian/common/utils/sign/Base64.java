@@ -3,7 +3,7 @@ package com.diandian.common.utils.sign;
 /**
  * Base64工具类
  * 
- * @author ruoyi
+ * @author diandian
  */
 public final class Base64
 {

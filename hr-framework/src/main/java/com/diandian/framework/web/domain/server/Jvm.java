@@ -1,4 +1,4 @@
-package com.diandain.framework.web.domain.server;
+package com.diandian.framework.web.domain.server;
 
 import java.lang.management.ManagementFactory;
 import com.diandian.common.utils.Arith;

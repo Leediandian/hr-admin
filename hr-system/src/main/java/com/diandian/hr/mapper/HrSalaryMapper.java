@@ -6,7 +6,7 @@ import com.diandian.hr.domain.HrSalary;
 /**
  * 薪资账套管理Mapper接口
  * 
- * @author ruoyi
+ * @author diandian
  * @date 2023-02-13
  */
 public interface HrSalaryMapper 

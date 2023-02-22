@@ -6,7 +6,7 @@ import com.diandian.common.utils.StringUtils;
 /**
  * 定时任务调度测试
  * 
- * @author ruoyi
+ * @author diandian
  */
 @Component("ryTask")
 public class RyTask

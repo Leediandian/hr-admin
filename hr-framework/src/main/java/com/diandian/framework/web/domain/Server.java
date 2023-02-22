@@ -1,17 +1,17 @@
-package com.diandain.framework.web.domain;
+package com.diandian.framework.web.domain;
 
 import java.net.UnknownHostException;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Properties;
 
-import com.diandain.framework.web.domain.server.Cpu;
-import com.diandain.framework.web.domain.server.Jvm;
-import com.diandain.framework.web.domain.server.Mem;
-import com.diandain.framework.web.domain.server.Sys;
+import com.diandian.framework.web.domain.server.Cpu;
+import com.diandian.framework.web.domain.server.Jvm;
+import com.diandian.framework.web.domain.server.Mem;
+import com.diandian.framework.web.domain.server.Sys;
 import com.diandian.common.utils.Arith;
 import com.diandian.common.utils.ip.IpUtils;
-import com.diandain.framework.web.domain.server.SysFile;
+import com.diandian.framework.web.domain.server.SysFile;
 import oshi.SystemInfo;
 import oshi.hardware.CentralProcessor;
 import oshi.hardware.CentralProcessor.TickType;

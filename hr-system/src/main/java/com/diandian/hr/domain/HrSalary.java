@@ -10,7 +10,7 @@ import com.diandian.common.core.domain.BaseEntity;
 /**
  * 薪资账套管理对象 hr_salary
  *
- * @author ruoyi
+ * @author diandian
  * @date 2023-02-13
  */
 public class HrSalary extends BaseEntity {

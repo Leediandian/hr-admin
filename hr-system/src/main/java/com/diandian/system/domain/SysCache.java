@@ -5,7 +5,7 @@ import com.diandian.common.utils.StringUtils;
 /**
  * 缓存信息
  * 
- * @author ruoyi
+ * @author diandian
  */
 public class SysCache
 {

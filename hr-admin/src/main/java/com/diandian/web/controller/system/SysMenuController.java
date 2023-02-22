@@ -1,4 +1,4 @@
-package com.diandain.web.controller.system;
+package com.diandian.web.controller.system;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;

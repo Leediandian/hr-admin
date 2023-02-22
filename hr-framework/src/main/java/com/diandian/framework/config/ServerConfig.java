@@ -1,4 +1,4 @@
-package com.diandain.framework.config;
+package com.diandian.framework.config;
 
 import javax.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Component;

@@ -1,4 +1,4 @@
-package com.diandain.framework.config.properties;
+package com.diandian.framework.config.properties;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;

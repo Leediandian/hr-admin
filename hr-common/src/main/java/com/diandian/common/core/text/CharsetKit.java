@@ -7,7 +7,7 @@ import com.diandian.common.utils.StringUtils;
 /**
  * 字符集工具类
  * 
- * @author ruoyi
+ * @author diandian
  */
 public class CharsetKit
 {

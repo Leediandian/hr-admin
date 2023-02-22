@@ -10,7 +10,7 @@ import com.diandian.hr.service.IHrSalaryService;
 /**
  * 薪资账套管理Service业务层处理
  * 
- * @author ruoyi
+ * @author diandian
  * @date 2023-02-13
  */
 @Service

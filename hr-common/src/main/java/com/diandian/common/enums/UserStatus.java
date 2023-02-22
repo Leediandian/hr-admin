@@ -3,7 +3,7 @@ package com.diandian.common.enums;
 /**
  * 用户状态
  * 
- * @author ruoyi
+ * @author diandian
  */
 public enum UserStatus
 {

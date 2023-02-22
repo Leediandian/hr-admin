@@ -1,4 +1,4 @@
-package com.diandain.framework.config;
+package com.diandian.framework.config;
 
 import java.util.concurrent.TimeUnit;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +13,7 @@ import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import com.diandian.common.config.HrConfig;
 import com.diandian.common.constant.Constants;
-import com.diandain.framework.interceptor.RepeatSubmitInterceptor;
+import com.diandian.framework.interceptor.RepeatSubmitInterceptor;
 
 /**
  * 通用配置

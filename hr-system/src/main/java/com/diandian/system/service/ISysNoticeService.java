@@ -6,7 +6,7 @@ import com.diandian.system.domain.SysNotice;
 /**
  * 公告 服务层
  * 
- * @author ruoyi
+ * @author diandian
  */
 public interface ISysNoticeService
 {

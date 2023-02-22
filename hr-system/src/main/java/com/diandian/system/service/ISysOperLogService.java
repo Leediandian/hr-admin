@@ -6,7 +6,7 @@ import com.diandian.system.domain.SysOperLog;
 /**
  * 操作日志 服务层
  * 
- * @author ruoyi
+ * @author diandian
  */
 public interface ISysOperLogService
 {

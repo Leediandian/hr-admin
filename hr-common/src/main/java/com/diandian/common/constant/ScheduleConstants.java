@@ -3,7 +3,7 @@ package com.diandian.common.constant;
 /**
  * 任务调度通用常量
  * 
- * @author ruoyi
+ * @author diandian
  */
 public class ScheduleConstants
 {

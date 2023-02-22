@@ -1,4 +1,4 @@
-package com.diandain.framework.interceptor.impl;
+package com.diandian.framework.interceptor.impl;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -14,7 +14,7 @@ import com.diandian.common.core.redis.RedisCache;
 import com.diandian.common.filter.RepeatedlyRequestWrapper;
 import com.diandian.common.utils.StringUtils;
 import com.diandian.common.utils.http.HttpHelper;
-import com.diandain.framework.interceptor.RepeatSubmitInterceptor;
+import com.diandian.framework.interceptor.RepeatSubmitInterceptor;
 
 /**
  * 判断请求url和数据是否和上一次相同，

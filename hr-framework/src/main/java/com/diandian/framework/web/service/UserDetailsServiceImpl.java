@@ -1,4 +1,4 @@
-package com.diandain.framework.web.service;
+package com.diandian.framework.web.service;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

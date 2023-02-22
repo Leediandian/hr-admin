@@ -1,4 +1,4 @@
-package com.diandain.framework.config;
+package com.diandian.framework.config;
 
 import java.util.Random;
 import com.google.code.kaptcha.text.impl.DefaultTextCreator;

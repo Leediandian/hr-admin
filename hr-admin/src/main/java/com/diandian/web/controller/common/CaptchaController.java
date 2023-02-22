@@ -1,4 +1,4 @@
-package com.diandain.web.controller.common;
+package com.diandian.web.controller.common;
 
 import java.awt.image.BufferedImage;
 import java.io.IOException;

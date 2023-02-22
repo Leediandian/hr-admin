@@ -6,7 +6,7 @@ import com.diandian.common.core.domain.entity.SysRole;
 /**
  * 角色表 数据层
  * 
- * @author ruoyi
+ * @author diandian
  */
 public interface SysRoleMapper
 {

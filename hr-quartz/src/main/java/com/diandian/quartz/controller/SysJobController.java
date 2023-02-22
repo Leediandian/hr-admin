@@ -30,7 +30,7 @@ import com.diandian.quartz.util.ScheduleUtils;
 /**
  * 调度任务信息操作处理
  * 
- * @author ruoyi
+ * @author diandian
  */
 @RestController
 @RequestMapping("/monitor/job")

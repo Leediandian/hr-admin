@@ -1,4 +1,4 @@
-package com.diandain.web.controller.monitor;
+package com.diandian.web.controller.monitor;
 
 import java.util.ArrayList;
 import java.util.Collection;

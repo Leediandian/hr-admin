@@ -1,4 +1,4 @@
-package com.diandain.framework.config;
+package com.diandian.framework.config;
 
 import com.diandian.common.utils.Threads;
 import org.apache.commons.lang3.concurrent.BasicThreadFactory;

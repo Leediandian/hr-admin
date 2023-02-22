@@ -5,7 +5,7 @@ import com.diandian.common.utils.StringUtils;
 /**
  * 分页数据
  * 
- * @author ruoyi
+ * @author diandian
  */
 public class PageDomain
 {

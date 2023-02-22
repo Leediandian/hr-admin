@@ -1,12 +1,12 @@
-package com.diandain.framework.aspectj;
+package com.diandian.framework.aspectj;
 
 import java.util.Collection;
 import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.diandain.framework.manager.AsyncManager;
-import com.diandain.framework.manager.factory.AsyncFactory;
+import com.diandian.framework.manager.AsyncManager;
+import com.diandian.framework.manager.factory.AsyncFactory;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.AfterThrowing;

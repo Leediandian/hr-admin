@@ -1,4 +1,4 @@
-package com.diandain.framework.security.handle;
+package com.diandian.framework.security.handle;
 
 import java.io.IOException;
 import java.io.Serializable;

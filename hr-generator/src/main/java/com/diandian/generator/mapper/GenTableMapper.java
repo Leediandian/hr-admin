@@ -6,7 +6,7 @@ import com.diandian.generator.domain.GenTable;
 /**
  * 业务 数据层
  * 
- * @author ruoyi
+ * @author diandian
  */
 public interface GenTableMapper
 {

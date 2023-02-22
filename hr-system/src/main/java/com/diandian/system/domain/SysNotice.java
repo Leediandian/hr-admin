@@ -10,7 +10,7 @@ import com.diandian.common.xss.Xss;
 /**
  * 通知公告表 sys_notice
  * 
- * @author ruoyi
+ * @author diandian
  */
 public class SysNotice extends BaseEntity
 {

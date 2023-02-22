@@ -20,7 +20,7 @@ import com.diandian.system.service.ISysConfigService;
 /**
  * 参数配置 服务层实现
  * 
- * @author ruoyi
+ * @author diandian
  */
 @Service
 public class SysConfigServiceImpl implements ISysConfigService

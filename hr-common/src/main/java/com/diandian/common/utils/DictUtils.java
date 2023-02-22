@@ -11,7 +11,7 @@ import com.diandian.common.utils.spring.SpringUtils;
 /**
  * 字典工具类
  * 
- * @author ruoyi
+ * @author diandian
  */
 public class DictUtils
 {

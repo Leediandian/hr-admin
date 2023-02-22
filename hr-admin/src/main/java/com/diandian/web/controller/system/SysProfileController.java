@@ -1,4 +1,4 @@
-package com.diandain.web.controller.system;
+package com.diandian.web.controller.system;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,7 +21,7 @@ import com.diandian.common.utils.SecurityUtils;
 import com.diandian.common.utils.StringUtils;
 import com.diandian.common.utils.file.FileUploadUtils;
 import com.diandian.common.utils.file.MimeTypeUtils;
-import com.diandain.framework.web.service.TokenService;
+import com.diandian.framework.web.service.TokenService;
 import com.diandian.system.service.ISysUserService;
 
 /**

@@ -3,7 +3,7 @@ package com.diandian.common.core.domain.model;
 /**
  * 用户登录对象
  * 
- * @author ruoyi
+ * @author diandian
  */
 public class LoginBody
 {

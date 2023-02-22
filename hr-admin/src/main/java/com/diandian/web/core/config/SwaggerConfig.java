@@ -1,4 +1,4 @@
-package com.diandain.web.core.config;
+package com.diandian.web.core.config;
 
 import java.util.ArrayList;
 import java.util.List;

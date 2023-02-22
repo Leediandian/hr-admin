@@ -1,4 +1,4 @@
-package com.diandain.web.controller.tool;
+package com.diandian.web.controller.tool;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;

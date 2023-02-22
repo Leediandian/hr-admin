@@ -1,4 +1,4 @@
-package com.diandain.framework.config;
+package com.diandian.framework.config;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -21,8 +21,8 @@ import com.alibaba.druid.spring.boot.autoconfigure.properties.DruidStatPropertie
 import com.alibaba.druid.util.Utils;
 import com.diandian.common.enums.DataSourceType;
 import com.diandian.common.utils.spring.SpringUtils;
-import com.diandain.framework.config.properties.DruidProperties;
-import com.diandain.framework.datasource.DynamicDataSource;
+import com.diandian.framework.config.properties.DruidProperties;
+import com.diandian.framework.datasource.DynamicDataSource;
 
 /**
  * druid 配置多数据源

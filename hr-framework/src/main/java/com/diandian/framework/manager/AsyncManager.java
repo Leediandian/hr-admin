@@ -1,4 +1,4 @@
-package com.diandain.framework.manager;
+package com.diandian.framework.manager;
 
 import java.util.TimerTask;
 import java.util.concurrent.ScheduledExecutorService;

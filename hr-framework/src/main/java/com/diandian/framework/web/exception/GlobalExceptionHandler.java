@@ -1,4 +1,4 @@
-package com.diandain.framework.web.exception;
+package com.diandian.framework.web.exception;
 
 import javax.servlet.http.HttpServletRequest;
 import org.slf4j.Logger;

@@ -11,7 +11,7 @@ import com.diandian.common.enums.LimitType;
 /**
  * 限流注解
  * 
- * @author ruoyi
+ * @author diandian
  */
 @Target(ElementType.METHOD)
 @Retention(RetentionPolicy.RUNTIME)

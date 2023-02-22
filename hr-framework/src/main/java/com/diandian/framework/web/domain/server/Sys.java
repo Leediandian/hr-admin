@@ -1,4 +1,4 @@
-package com.diandain.framework.web.domain.server;
+package com.diandian.framework.web.domain.server;
 
 /**
  * 系统相关信息

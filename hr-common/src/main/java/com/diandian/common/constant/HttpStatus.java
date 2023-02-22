@@ -3,7 +3,7 @@ package com.diandian.common.constant;
 /**
  * 返回状态码
  * 
- * @author ruoyi
+ * @author diandian
  */
 public class HttpStatus
 {

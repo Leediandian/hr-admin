@@ -5,7 +5,7 @@ import com.diandian.common.utils.DateUtils;
 import com.diandian.common.utils.StringUtils;
 
 /**
- * @author ruoyi 序列生成类
+ * @author diandian 序列生成类
  */
 public class Seq
 {

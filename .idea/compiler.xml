@@ -6,12 +6,12 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="ruoyi-framework" />
-        <module name="ruoyi-admin" />
-        <module name="ruoyi-generator" />
-        <module name="ruoyi-quartz" />
-        <module name="ruoyi-common" />
-        <module name="ruoyi-system" />
+        <module name="hr-common" />
+        <module name="hr-framework" />
+        <module name="hr-admin" />
+        <module name="hr-generator" />
+        <module name="hr-quartz" />
+        <module name="hr-system" />
       </profile>
     </annotationProcessing>
   </component>

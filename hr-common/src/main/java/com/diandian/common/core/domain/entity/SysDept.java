@@ -13,7 +13,7 @@ import com.diandian.common.core.domain.BaseEntity;
 /**
  * 部门表 sys_dept
  * 
- * @author ruoyi
+ * @author diandian
  */
 public class SysDept extends BaseEntity
 {

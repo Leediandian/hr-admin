@@ -6,7 +6,7 @@ import com.diandian.common.utils.StringUtils;
 /**
  * sql操作工具类
  * 
- * @author ruoyi
+ * @author diandian
  */
 public class SqlUtil
 {

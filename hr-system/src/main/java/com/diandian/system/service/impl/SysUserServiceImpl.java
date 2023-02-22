@@ -33,7 +33,7 @@ import com.diandian.system.service.ISysUserService;
 /**
  * 用户 业务层处理
  * 
- * @author ruoyi
+ * @author diandian
  */
 @Service
 public class SysUserServiceImpl implements ISysUserService

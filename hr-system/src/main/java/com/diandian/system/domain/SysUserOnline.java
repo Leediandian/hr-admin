@@ -3,7 +3,7 @@ package com.diandian.system.domain;
 /**
  * 当前在线会话
  * 
- * @author ruoyi
+ * @author diandian
  */
 public class SysUserOnline
 {

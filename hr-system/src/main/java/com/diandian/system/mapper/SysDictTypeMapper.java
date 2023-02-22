@@ -6,7 +6,7 @@ import com.diandian.common.core.domain.entity.SysDictType;
 /**
  * 字典表 数据层
  * 
- * @author ruoyi
+ * @author diandian
  */
 public interface SysDictTypeMapper
 {

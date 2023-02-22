@@ -20,7 +20,7 @@ import com.diandian.quartz.util.ScheduleUtils;
 /**
  * 定时任务调度信息 服务层
  * 
- * @author ruoyi
+ * @author diandian
  */
 @Service
 public class SysJobServiceImpl implements ISysJobService

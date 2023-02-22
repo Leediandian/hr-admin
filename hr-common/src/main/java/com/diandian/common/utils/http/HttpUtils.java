@@ -25,7 +25,7 @@ import com.diandian.common.utils.StringUtils;
 /**
  * 通用http发送方法
  * 
- * @author ruoyi
+ * @author diandian
  */
 public class HttpUtils
 {

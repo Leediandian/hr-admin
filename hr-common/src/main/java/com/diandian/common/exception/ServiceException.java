@@ -3,7 +3,7 @@ package com.diandian.common.exception;
 /**
  * 业务异常
  * 
- * @author ruoyi
+ * @author diandian
  */
 public final class ServiceException extends RuntimeException
 {

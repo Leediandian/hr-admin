@@ -5,7 +5,7 @@ import com.diandian.common.utils.StringUtils;
 /**
  * 路由显示信息
  * 
- * @author ruoyi
+ * @author diandian
  */
 public class MetaVo
 {

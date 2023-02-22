@@ -1,4 +1,4 @@
-package com.diandain.framework.security.context;
+package com.diandian.framework.security.context;
 
 import org.springframework.web.context.request.RequestAttributes;
 import org.springframework.web.context.request.RequestContextHolder;

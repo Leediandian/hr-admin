@@ -1,4 +1,4 @@
-package com.diandain.framework.aspectj;
+package com.diandian.framework.aspectj;
 
 import java.util.Objects;
 import org.aspectj.lang.ProceedingJoinPoint;
@@ -13,7 +13,7 @@ import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 import com.diandian.common.annotation.DataSource;
 import com.diandian.common.utils.StringUtils;
-import com.diandain.framework.datasource.DynamicDataSourceContextHolder;
+import com.diandian.framework.datasource.DynamicDataSourceContextHolder;
 
 /**
  * 多数据源处理

@@ -6,7 +6,7 @@ import com.diandian.quartz.domain.SysJob;
 /**
  * 调度任务信息 数据层
  * 
- * @author ruoyi
+ * @author diandian
  */
 public interface SysJobMapper
 {

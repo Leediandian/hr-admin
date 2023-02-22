@@ -1,4 +1,4 @@
-package com.diandain.framework.manager.factory;
+package com.diandian.framework.manager.factory;
 
 import java.util.TimerTask;
 import org.slf4j.Logger;

@@ -3,7 +3,7 @@ package com.diandian.common.exception;
 /**
  * 演示模式异常
  * 
- * @author ruoyi
+ * @author diandian
  */
 public class DemoModeException extends RuntimeException
 {

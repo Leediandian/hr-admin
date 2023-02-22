@@ -16,7 +16,7 @@ import com.diandian.generator.domain.GenTableColumn;
 /**
  * 模板处理工具类
  * 
- * @author ruoyi
+ * @author diandian
  */
 public class VelocityUtils
 {

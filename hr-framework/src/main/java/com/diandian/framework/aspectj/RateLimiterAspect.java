@@ -1,4 +1,4 @@
-package com.diandain.framework.aspectj;
+package com.diandian.framework.aspectj;
 
 import java.lang.reflect.Method;
 import java.util.Collections;

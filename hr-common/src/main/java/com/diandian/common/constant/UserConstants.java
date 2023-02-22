@@ -3,7 +3,7 @@ package com.diandian.common.constant;
 /**
  * 用户常量信息
  * 
- * @author ruoyi
+ * @author diandian
  */
 public class UserConstants
 {

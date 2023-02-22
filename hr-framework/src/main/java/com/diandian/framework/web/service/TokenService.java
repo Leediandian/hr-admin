@@ -1,4 +1,4 @@
-package com.diandain.framework.web.service;
+package com.diandian.framework.web.service;
 
 import java.util.HashMap;
 import java.util.Map;

@@ -10,7 +10,7 @@ import com.diandian.quartz.service.ISysJobLogService;
 /**
  * 定时任务调度日志信息 服务层
  * 
- * @author ruoyi
+ * @author diandian
  */
 @Service
 public class SysJobLogServiceImpl implements ISysJobLogService

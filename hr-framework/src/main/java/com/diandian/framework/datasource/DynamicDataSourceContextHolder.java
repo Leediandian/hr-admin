@@ -1,4 +1,4 @@
-package com.diandain.framework.datasource;
+package com.diandian.framework.datasource;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

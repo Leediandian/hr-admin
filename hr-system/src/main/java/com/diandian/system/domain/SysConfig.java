@@ -11,7 +11,7 @@ import com.diandian.common.core.domain.BaseEntity;
 /**
  * 参数配置表 sys_config
  * 
- * @author ruoyi
+ * @author diandian
  */
 public class SysConfig extends BaseEntity
 {

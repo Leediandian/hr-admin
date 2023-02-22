@@ -6,7 +6,7 @@ import com.diandian.system.domain.SysConfig;
 /**
  * 参数配置 服务层
  * 
- * @author ruoyi
+ * @author diandian
  */
 public interface ISysConfigService
 {

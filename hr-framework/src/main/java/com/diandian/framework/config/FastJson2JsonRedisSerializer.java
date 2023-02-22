@@ -1,4 +1,4 @@
-package com.diandain.framework.config;
+package com.diandian.framework.config;
 
 import java.nio.charset.Charset;
 import org.springframework.data.redis.serializer.RedisSerializer;

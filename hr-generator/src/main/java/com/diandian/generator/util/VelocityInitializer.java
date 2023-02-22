@@ -7,7 +7,7 @@ import com.diandian.common.constant.Constants;
 /**
  * VelocityEngine工厂
  * 
- * @author ruoyi
+ * @author diandian
  */
 public class VelocityInitializer
 {

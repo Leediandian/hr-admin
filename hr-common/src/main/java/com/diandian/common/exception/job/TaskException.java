@@ -3,7 +3,7 @@ package com.diandian.common.exception.job;
 /**
  * 计划策略异常
  * 
- * @author ruoyi
+ * @author diandian
  */
 public class TaskException extends Exception
 {

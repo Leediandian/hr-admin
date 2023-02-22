@@ -6,7 +6,7 @@ import com.diandian.common.utils.ServletUtils;
 /**
  * 表格数据处理
  * 
- * @author ruoyi
+ * @author diandian
  */
 public class TableSupport
 {

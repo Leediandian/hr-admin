@@ -9,7 +9,7 @@ import com.diandian.system.domain.vo.RouterVo;
 /**
  * 菜单 业务层
  * 
- * @author ruoyi
+ * @author diandian
  */
 public interface ISysMenuService
 {

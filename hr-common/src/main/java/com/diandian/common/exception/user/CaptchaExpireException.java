@@ -3,7 +3,7 @@ package com.diandian.common.exception.user;
 /**
  * 验证码失效异常类
  * 
- * @author ruoyi
+ * @author diandian
  */
 public class CaptchaExpireException extends UserException
 {

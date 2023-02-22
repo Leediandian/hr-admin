@@ -10,7 +10,7 @@ import com.diandian.common.core.domain.entity.SysUser;
 /**
  * 登录用户身份权限
  * 
- * @author ruoyi
+ * @author diandian
  */
 public class LoginUser implements UserDetails
 {

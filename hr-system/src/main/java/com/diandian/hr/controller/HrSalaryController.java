@@ -24,7 +24,7 @@ import com.diandian.common.core.page.TableDataInfo;
 /**
  * 薪资账套管理Controller
  * 
- * @author ruoyi
+ * @author diandian
  * @date 2023-02-13
  */
 @RestController

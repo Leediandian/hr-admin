@@ -12,7 +12,7 @@ import com.diandian.common.core.domain.BaseEntity;
 /**
  * 菜单权限表 sys_menu
  * 
- * @author ruoyi
+ * @author diandian
  */
 public class SysMenu extends BaseEntity
 {

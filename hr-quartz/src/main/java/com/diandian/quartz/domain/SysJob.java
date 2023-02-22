@@ -16,7 +16,7 @@ import com.diandian.quartz.util.CronUtils;
 /**
  * 定时任务调度表 sys_job
  * 
- * @author ruoyi
+ * @author diandian
  */
 public class SysJob extends BaseEntity
 {

@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
  */
 @Component
 @ConfigurationProperties(prefix = "diandian")
-public class RuoYiConfig
+public class HrConfig
 {
     /** 项目名称 */
     private String name;
@@ -32,6 +32,7 @@ public class RuoYiConfig
 
     /** 验证码类型 */
     private static String captchaType;
+
 
     public String getName()
     {
@@ -80,7 +81,7 @@ public class RuoYiConfig
 
     public void setProfile(String profile)
     {
-        RuoYiConfig.profile = profile;
+        HrConfig.profile = profile;
     }
 
     public static boolean isAddressEnabled()
@@ -90,7 +91,7 @@ public class RuoYiConfig
 
     public void setAddressEnabled(boolean addressEnabled)
     {
-        RuoYiConfig.addressEnabled = addressEnabled;
+        HrConfig.addressEnabled = addressEnabled;
     }
 
     public static String getCaptchaType() {
@@ -98,7 +99,7 @@ public class RuoYiConfig
     }
 
     public void setCaptchaType(String captchaType) {
-        RuoYiConfig.captchaType = captchaType;
+        HrConfig.captchaType = captchaType;
     }
 
     /**

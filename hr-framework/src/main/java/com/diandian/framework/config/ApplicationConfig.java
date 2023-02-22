@@ -1,4 +1,4 @@
-package com.diandain.framework.config;
+package com.diandian.framework.config;
 
 import java.util.TimeZone;
 import org.mybatis.spring.annotation.MapperScan;

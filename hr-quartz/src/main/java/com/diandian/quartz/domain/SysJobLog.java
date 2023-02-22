@@ -9,7 +9,7 @@ import com.diandian.common.core.domain.BaseEntity;
 /**
  * 定时任务调度日志表 sys_job_log
  * 
- * @author ruoyi
+ * @author diandian
  */
 public class SysJobLog extends BaseEntity
 {

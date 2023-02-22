@@ -1,4 +1,4 @@
-package com.diandain.web.controller.system;
+package com.diandian.web.controller.system;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;

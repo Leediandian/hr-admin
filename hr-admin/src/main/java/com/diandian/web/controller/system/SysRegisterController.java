@@ -1,4 +1,4 @@
-package com.diandain.web.controller.system;
+package com.diandian.web.controller.system;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -8,7 +8,7 @@ import com.diandian.common.core.controller.BaseController;
 import com.diandian.common.core.domain.AjaxResult;
 import com.diandian.common.core.domain.model.RegisterBody;
 import com.diandian.common.utils.StringUtils;
-import com.diandain.framework.web.service.SysRegisterService;
+import com.diandian.framework.web.service.SysRegisterService;
 import com.diandian.system.service.ISysConfigService;
 
 /**

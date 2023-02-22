@@ -10,7 +10,7 @@ import com.diandian.system.service.ISysOperLogService;
 /**
  * 操作日志 服务层处理
  * 
- * @author ruoyi
+ * @author diandian
  */
 @Service
 public class SysOperLogServiceImpl implements ISysOperLogService

@@ -1,4 +1,4 @@
-package com.diandain.web.controller.system;
+package com.diandian.web.controller.system;
 
 import java.util.List;
 import java.util.Set;
@@ -13,8 +13,8 @@ import com.diandian.common.core.domain.entity.SysMenu;
 import com.diandian.common.core.domain.entity.SysUser;
 import com.diandian.common.core.domain.model.LoginBody;
 import com.diandian.common.utils.SecurityUtils;
-import com.diandain.framework.web.service.SysLoginService;
-import com.diandain.framework.web.service.SysPermissionService;
+import com.diandian.framework.web.service.SysLoginService;
+import com.diandian.framework.web.service.SysPermissionService;
 import com.diandian.system.service.ISysMenuService;
 
 /**

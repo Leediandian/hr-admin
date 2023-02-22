@@ -6,7 +6,7 @@ import com.diandian.common.core.domain.entity.SysDictData;
 /**
  * 字典 业务层
  * 
- * @author ruoyi
+ * @author diandian
  */
 public interface ISysDictDataService
 {

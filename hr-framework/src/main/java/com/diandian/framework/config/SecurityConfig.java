@@ -1,6 +1,6 @@
-package com.diandain.framework.config;
+package com.diandian.framework.config;
 
-import com.diandain.framework.config.properties.PermitAllUrlProperties;
+import com.diandian.framework.config.properties.PermitAllUrlProperties;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpMethod;
@@ -16,9 +16,9 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.security.web.authentication.logout.LogoutFilter;
 import org.springframework.web.filter.CorsFilter;
-import com.diandain.framework.security.filter.JwtAuthenticationTokenFilter;
-import com.diandain.framework.security.handle.AuthenticationEntryPointImpl;
-import com.diandain.framework.security.handle.LogoutSuccessHandlerImpl;
+import com.diandian.framework.security.filter.JwtAuthenticationTokenFilter;
+import com.diandian.framework.security.handle.AuthenticationEntryPointImpl;
+import com.diandian.framework.security.handle.LogoutSuccessHandlerImpl;
 
 /**
  * spring security配置

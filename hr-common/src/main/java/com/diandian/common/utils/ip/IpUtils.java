@@ -8,7 +8,7 @@ import com.diandian.common.utils.StringUtils;
 /**
  * 获取IP方法
  * 
- * @author ruoyi
+ * @author diandian
  */
 public class IpUtils
 {

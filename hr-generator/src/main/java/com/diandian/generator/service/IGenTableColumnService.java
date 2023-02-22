@@ -6,7 +6,7 @@ import com.diandian.generator.domain.GenTableColumn;
 /**
  * 业务字段 服务层
  * 
- * @author ruoyi
+ * @author diandian
  */
 public interface IGenTableColumnService
 {

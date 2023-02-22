@@ -6,7 +6,7 @@ import com.diandian.system.domain.SysUserOnline;
 /**
  * 在线用户 服务层
  * 
- * @author ruoyi
+ * @author diandian
  */
 public interface ISysUserOnlineService
 {

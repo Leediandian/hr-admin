@@ -6,7 +6,7 @@ import com.diandian.system.domain.SysPost;
 /**
  * 岗位信息 数据层
  * 
- * @author ruoyi
+ * @author diandian
  */
 public interface SysPostMapper
 {
