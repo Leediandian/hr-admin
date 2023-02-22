@@ -2,6 +2,8 @@ package com.diandian.hr.service;
 
 import java.util.List;
 import com.diandian.hr.domain.HrAttendance;
+import com.diandian.hr.domain.vo.HrAttendanceMonthVo;
+import com.diandian.hr.domain.vo.HrAttendanceVo;
 
 /**
  * 员工考勤管理Service接口
@@ -58,4 +60,12 @@ public interface IHrAttendanceService
      * @return 结果
      */
     public int deleteHrAttendanceById(Long id);
+
+    /**
+     * 查看员工每月考勤表现列表
+     *
+     * @param hrAttendanceMonthVo 员工考勤管理
+     * @return 结果
+     */
+    List<HrAttendanceMonthVo> selectMonthOfHrAttendanceList(HrAttendanceMonthVo hrAttendanceMonthVo);
 }

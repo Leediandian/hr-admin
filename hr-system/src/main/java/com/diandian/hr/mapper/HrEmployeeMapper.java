@@ -2,6 +2,7 @@ package com.diandian.hr.mapper;
 
 import java.util.List;
 import com.diandian.hr.domain.HrEmployee;
+import com.diandian.hr.domain.vo.HrAttendanceMonthVo;
 
 /**
  * 员工档案管理Mapper接口
@@ -26,6 +27,14 @@ public interface HrEmployeeMapper
      * @return 员工档案管理集合
      */
     public List<HrEmployee> selectHrEmployeeList(HrEmployee hrEmployee);
+
+    /**
+     * 查询员工档案管理列表
+     *
+     * @param hrEmployee 员工档案管理
+     * @return 返回员工列表 到 员工考勤表现列表
+     */
+    public List<HrAttendanceMonthVo> selectHrEmployeeListMonth(HrAttendanceMonthVo hrEmployee);
 
     /**
      * 新增员工档案管理

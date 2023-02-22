@@ -9,6 +9,7 @@ import java.time.LocalTime;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.util.Date;
+import cn.hutool.core.date.DateUtil;
 import org.apache.commons.lang3.time.DateFormatUtils;
 
 /**
@@ -106,6 +107,25 @@ public class DateUtils extends org.apache.commons.lang3.time.DateUtils
     {
         Date now = new Date();
         return DateFormatUtils.format(now, "yyyyMMdd");
+    }
+
+    /**
+     * 获取月份的日期字符串数据组如，['20220101','20220102','20220103',........]
+     *
+     * @param month yyyyMM
+     * @return
+     */
+    public static String[] getMonthDayList(String month) {
+        int monthSize = DateUtil.lengthOfMonth(Integer.valueOf(month.substring(4)), DateUtil.isLeapYear(Integer.valueOf(month.substring(0, 4))));
+        String[] monthDayList = new String[monthSize];
+        for (int i = 0; i < monthSize; i++) {
+            if (i < 9) {
+                monthDayList[i] = month + "0" + (i + 1);
+            } else {
+                monthDayList[i] = month + (i + 1);
+            }
+        }
+        return monthDayList;
     }
 
     /**

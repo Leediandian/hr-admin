@@ -2,6 +2,9 @@ package com.diandian.hr.controller;
 
 import java.util.List;
 import javax.servlet.http.HttpServletResponse;
+
+import com.diandian.hr.domain.vo.HrAttendanceMonthVo;
+import com.diandian.hr.domain.vo.HrAttendanceVo;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -100,5 +103,17 @@ public class HrAttendanceController extends BaseController
     public AjaxResult remove(@PathVariable Long[] ids)
     {
         return toAjax(hrAttendanceService.deleteHrAttendanceByIds(ids));
+    }
+
+    /**
+     * 查询员工每月考勤表现列表
+     */
+    @PreAuthorize("@ss.hasPermi('hr:attendance:monthOfList')")
+    @GetMapping("/monthOfList")
+    public TableDataInfo monthOfList(HrAttendanceMonthVo hrAttendanceMonthVo)
+    {
+        startPage();
+        List<HrAttendanceMonthVo> list = hrAttendanceService.selectMonthOfHrAttendanceList(hrAttendanceMonthVo);
+        return getDataTable(list);
     }
 }

@@ -37,29 +37,29 @@ public class HrAttendance extends BaseEntity {
     /**
      * 上午上班时间
      */
-    @JsonFormat(pattern = "HH:mm:ss")
-    @Excel(name = "上午上班时间", width = 30, dateFormat = "HH:mm:ss")
+    @JsonFormat(pattern = "HH:mm")
+    @Excel(name = "上午上班时间", width = 30, dateFormat = "HH:mm")
     private Date morStartTime;
 
     /**
      * 上午下班时间
      */
-    @JsonFormat(pattern = "HH:mm:ss")
-    @Excel(name = "上午下班时间", width = 30, dateFormat = "HH:mm:ss")
+    @JsonFormat(pattern = "HH:mm")
+    @Excel(name = "上午下班时间", width = 30, dateFormat = "HH:mm")
     private Date morEndTime;
 
     /**
      * 下午上班时间
      */
-    @JsonFormat(pattern = "HH:mm:ss")
-    @Excel(name = "下午上班时间", width = 30, dateFormat = "HH:mm:ss")
+    @JsonFormat(pattern = "HH:mm")
+    @Excel(name = "下午上班时间", width = 30, dateFormat = "HH:mm")
     private Date aftStartTime;
 
     /**
      * 下午下班时间
      */
-    @JsonFormat(pattern = "HH:mm:ss")
-    @Excel(name = "下午下班时间", width = 30, dateFormat = "HH:mm:ss")
+    @JsonFormat(pattern = "HH:mm")
+    @Excel(name = "下午下班时间", width = 30, dateFormat = "HH:mm")
     private Date aftEndTime;
 
     /**

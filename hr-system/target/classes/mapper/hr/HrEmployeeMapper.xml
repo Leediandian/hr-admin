@@ -38,6 +38,19 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <association property="jobLevel"    column="job_level_id" javaType="HrJobLevel" resultMap="jobLevelResult" />
     </resultMap>
 
+    <resultMap type="HrAttendanceMonthVo" id="HrAttendanceMonthVoResult">
+        <result property="employeeId"    column="employee_id"    />
+        <result property="employeeName"    column="name"    />
+        <result property="phone"    column="phone"    />
+        <result property="address"    column="address"    />
+        <result property="deptId"    column="dept_id"    />
+        <result property="postName"    column="post_name"    />
+        <result property="postId"    column="post_id"    />
+        <result property="workId"    column="work_id"    />
+        <result property="workState"    column="work_state"    />
+        <result property="engageForm"    column="engage_form"    />
+    </resultMap>
+
     <resultMap id="deptResult" type="SysDept">
         <id     property="deptId"    column="dept_id"     />
         <result property="parentId"  column="parent_id"   />
@@ -117,6 +130,15 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <include refid="selectHrEmployeeVo"/>
         where e.employee_id = #{employeeId}
     </select>
+
+
+    <select id="selectHrEmployeeListMonth" parameterType="HrAttendanceMonthVo" resultMap="HrAttendanceMonthVoResult">
+        <include refid="selectHrEmployeeVo"/>
+        <where>
+            <if test="employeeName != null  and employeeName != ''"> and e.name like concat('%', #{employeeName}, '%')</if>
+        </where>
+    </select>
+
         
     <insert id="insertHrEmployee" parameterType="HrEmployee" useGeneratedKeys="true" keyProperty="employeeId">
         insert into hr_employee
