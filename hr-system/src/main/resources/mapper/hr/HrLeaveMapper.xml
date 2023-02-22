@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.diandian.hr.mapper.HrLeaveMapper">
+
+    <resultMap type="HrLeave" id="HrLeaveResult">
+        <result property="leaveId"    column="leave_id"    />
+        <result property="employeeId"    column="employee_id"    />
+        <result property="employeeName"    column="name"    />
+        <result property="days"    column="days"    />
+        <result property="leaveType"    column="leave_type"    />
+        <result property="leaveReason"    column="leave_reason"    />
+        <result property="startDate"    column="start_date"    />
+        <result property="endDate"    column="end_date"    />
+        <result property="leaveStatus"    column="leave_status"    />
+        <result property="remark"    column="remark"    />
+        <result property="createTime"    column="create_time"    />
+        <result property="updateTime"    column="update_time"    />
+        <result property="isDeleted"    column="is_deleted"    />
+    </resultMap>
+
+    <sql id="selectHrLeaveVo">
+        select l.leave_id, l.employee_id, l.days, l.leave_type,l.leave_reason, l.start_date, l.end_date, l.leave_status, l.remark, l.create_time, l.update_time, l.is_deleted,
+        e.name
+        from hr_leave l
+        left join  hr_employee e on l.employee_id = e.employee_id
+    </sql>
+
+    <select id="selectHrLeaveList" parameterType="HrLeave" resultMap="HrLeaveResult">
+        <include refid="selectHrLeaveVo"/>
+        <where>
+            <if test="employeeName != null  and employeeName != ''"> and e.name like concat('%', #{employeeName}, '%')</if>
+            <if test="employeeId != null "> and l.employee_id = #{employeeId}</if>
+            <if test="days != null "> and l.days = #{days}</if>
+            <if test="leaveType != null  and leaveType != ''"> and l.leave_type = #{leaveType}</if>
+            <if test="startDate != null "> and l.start_date = #{startDate}</if>
+            <if test="endDate != null "> and l.end_date = #{endDate}</if>
+            <if test="leaveStatus != null  and leaveStatus != ''"> and l.leave_status = #{leaveStatus}</if>
+            <if test="isDeleted != null "> and l.is_deleted = #{isDeleted}</if>
+        </where>
+    </select>
+
+    <select id="selectHrLeaveByLeaveId" parameterType="Long" resultMap="HrLeaveResult">
+        <include refid="selectHrLeaveVo"/>
+        where l.leave_id = #{leaveId}
+    </select>
+
+    <insert id="insertHrLeave" parameterType="HrLeave" useGeneratedKeys="true" keyProperty="leaveId">
+        insert into hr_leave
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="employeeId != null">employee_id,</if>
+            <if test="days != null">days,</if>
+            <if test="leaveType != null">leave_type,</if>
+            <if test="startDate != null">start_date,</if>
+            <if test="endDate != null">end_date,</if>
+            <if test="leaveStatus != null">leave_status,</if>
+            <if test="leaveReason != null">leave_reason,</if>
+            <if test="remark != null">remark,</if>
+            <if test="isDeleted != null">is_deleted,</if>
+            create_time
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="employeeId != null">#{employeeId},</if>
+            <if test="days != null">#{days},</if>
+            <if test="leaveType != null">#{leaveType},</if>
+            <if test="startDate != null">#{startDate},</if>
+            <if test="endDate != null">#{endDate},</if>
+            <if test="leaveStatus != null">#{leaveStatus},</if>
+            <if test="leaveReason != null">#{leaveReason},</if>
+            <if test="remark != null">#{remark},</if>
+            <if test="isDeleted != null">#{isDeleted},</if>
+            sysdate()
+        </trim>
+    </insert>
+
+    <update id="updateHrLeave" parameterType="HrLeave">
+        update hr_leave
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="employeeId != null">employee_id = #{employeeId},</if>
+            <if test="days != null">days = #{days},</if>
+            <if test="leaveType != null">leave_type = #{leaveType},</if>
+            <if test="leaveReason != null">leave_reason = #{leaveReason},</if>
+            <if test="startDate != null">start_date = #{startDate},</if>
+            <if test="endDate != null">end_date = #{endDate},</if>
+            <if test="leaveStatus != null">leave_status = #{leaveStatus},</if>
+            <if test="remark != null">remark = #{remark},</if>
+            <if test="isDeleted != null">is_deleted = #{isDeleted},</if>
+            update_time = sysdate()
+        </trim>
+        where leave_id = #{leaveId}
+    </update>
+
+    <delete id="deleteHrLeaveByLeaveId" parameterType="Long">
+        delete from hr_leave where leave_id = #{leaveId}
+    </delete>
+
+    <delete id="deleteHrLeaveByLeaveIds" parameterType="String">
+        delete from hr_leave where leave_id in
+        <foreach item="leaveId" collection="array" open="(" separator="," close=")">
+            #{leaveId}
+        </foreach>
+    </delete>
+</mapper>

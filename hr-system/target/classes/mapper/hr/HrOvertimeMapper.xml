@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.hr.mapper.HrOvertimeMapper">
+    
+    <resultMap type="HrOvertime" id="HrOvertimeResult">
+        <result property="id"    column="id"    />
+        <result property="salaryMultiple"    column="salary_multiple"    />
+        <result property="bonus"    column="bonus"    />
+        <result property="overtimeTypeId"    column="overtime_type_id"    />
+        <result property="overtimeTypeName"    column="overtime_type_name"    />
+        <result property="employeeId"    column="employee_id"    />
+        <result property="employeeName"    column="name"    />
+        <result property="countType"    column="count_type"    />
+        <result property="timeNum"    column="time_num"    />
+        <result property="remark"    column="remark"    />
+        <result property="isTimeOff"    column="is_time_off"    />
+        <result property="createTime"    column="create_time"    />
+        <result property="updateTime"    column="update_time"    />
+        <result property="isDeleted"    column="is_deleted"    />
+    </resultMap>
+
+    <sql id="selectHrOvertimeVo">
+        select o.id, o.salary_multiple, o.bonus, o.overtime_type_id, o.employee_id, o.count_type,o.time_num, o.remark, o.is_time_off, o.create_time, o.update_time, o.is_deleted,
+        e.name,t.name as overtime_type_name
+        from hr_overtime o
+        left join  hr_employee e on o.employee_id = e.employee_id
+        left join  hr_overtime_type t on o.overtime_type_id = t.overtime_type_id
+    </sql>
+
+    <select id="selectHrOvertimeList" parameterType="HrOvertime" resultMap="HrOvertimeResult">
+        <include refid="selectHrOvertimeVo"/>
+        <where>
+            <if test="employeeName != null  and employeeName != ''"> and e.name like concat('%', #{employeeName}, '%')</if>
+            <if test="salaryMultiple != null "> and o.salary_multiple = #{salaryMultiple}</if>
+            <if test="bonus != null "> and o.bonus = #{bonus}</if>
+            <if test="overtimeTypeId != null "> and o.overtime_type_id = #{overtimeTypeId}</if>
+            <if test="employeeId != null "> and o.employee_id = #{employeeId}</if>
+            <if test="countType != null "> and o.count_type = #{countType}</if>
+            <if test="isTimeOff != null "> and o.is_time_off = #{isTimeOff}</if>
+            <if test="isDeleted != null "> and o.is_deleted = #{isDeleted}</if>
+        </where>
+    </select>
+
+    <select id="selectHrOvertimeById" parameterType="Long" resultMap="HrOvertimeResult">
+        <include refid="selectHrOvertimeVo"/>
+        where o.id = #{id}
+    </select>
+
+
+    <insert id="insertHrOvertime" parameterType="HrOvertime" useGeneratedKeys="true" keyProperty="id">
+        insert into hr_overtime
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="salaryMultiple != null">salary_multiple,</if>
+            <if test="bonus != null">bonus,</if>
+            <if test="overtimeTypeId != null">overtime_type_id,</if>
+            <if test="employeeId != null">employee_id,</if>
+            <if test="countType != null">count_type,</if>
+            <if test="timeNum != null">time_num,</if>
+            <if test="remark != null">remark,</if>
+            <if test="isTimeOff != null">is_time_off,</if>
+            <if test="isDeleted != null">is_deleted,</if>
+            create_time
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="salaryMultiple != null">#{salaryMultiple},</if>
+            <if test="bonus != null">#{bonus},</if>
+            <if test="overtimeTypeId != null">#{overtimeTypeId},</if>
+            <if test="employeeId != null">#{employeeId},</if>
+            <if test="countType != null">#{countType},</if>
+            <if test="timeNum != null">#{timeNum},</if>
+            <if test="remark != null">#{remark},</if>
+            <if test="isTimeOff != null">#{isTimeOff},</if>
+            <if test="isDeleted != null">#{isDeleted},</if>
+            sysdate()
+         </trim>
+    </insert>
+
+    <update id="updateHrOvertime" parameterType="HrOvertime">
+        update hr_overtime
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="salaryMultiple != null">salary_multiple = #{salaryMultiple},</if>
+            <if test="bonus != null">bonus = #{bonus},</if>
+            <if test="overtimeTypeId != null">overtime_type_id = #{overtimeTypeId},</if>
+            <if test="employeeId != null">employee_id = #{employeeId},</if>
+            <if test="countType != null">count_type = #{countType},</if>
+            <if test="timeNum != null">time_num = #{timeNum},</if>
+            <if test="remark != null">remark = #{remark},</if>
+            <if test="isTimeOff != null">is_time_off = #{isTimeOff},</if>
+            <if test="isDeleted != null">is_deleted = #{isDeleted},</if>
+            update_time = sysdate()
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteHrOvertimeById" parameterType="Long">
+        delete from hr_overtime where id = #{id}
+    </delete>
+
+    <delete id="deleteHrOvertimeByIds" parameterType="String">
+        delete from hr_overtime where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+</mapper>
