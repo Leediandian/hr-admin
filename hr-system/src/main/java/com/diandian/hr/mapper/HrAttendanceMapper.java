@@ -1,5 +1,6 @@
 package com.diandian.hr.mapper;
 
+import java.sql.Date;
 import java.util.List;
 import com.diandian.hr.domain.HrAttendance;
 import org.apache.ibatis.annotations.Param;
@@ -69,5 +70,22 @@ public interface HrAttendanceMapper
     public int deleteHrAttendanceByIds(Long[] ids);
 
 
+    /**
+     * 统计员工迟到、早退、旷工的次数
+     *
+     * @param employeeId     员工id
+     * @param status 状态
+     * @param month  月份
+     * @return
+     */
+    Integer countTimes(@Param("employeeId") Long employeeId, @Param("status") String status, @Param("month") String month);
 
+    /**
+     * 查找员工休假的日期
+     *
+     * @param employeeId
+     * @param month
+     * @return
+     */
+    List<Date> findLeaveDate(@Param("employeeId") Long employeeId, @Param("status") String status, @Param("month") String month);
 }

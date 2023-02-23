@@ -49,13 +49,11 @@ public class HrAttendanceMonthVo extends BaseEntity {
     /**
      * 所属部门
      */
-    @Excel(name = "所属部门")
     private Long deptId;
 
     /**
      * 职位ID
      */
-    @Excel(name = "职位ID")
     private Long postId;
 
     /**
@@ -65,24 +63,23 @@ public class HrAttendanceMonthVo extends BaseEntity {
     private String postName;
 
     /**
-     * 聘用形式
+     * 所属部门名称
      */
-    @Excel(name = "聘用形式")
-    private String engageForm;
-
-    /**
-     * 在职状态
-     */
-    @Excel(name = "在职状态")
-    private String workState;
+    @Excel(name = "部门名称")
+    private String deptName;
 
     /**
      * 工号
      */
     @Excel(name = "工号")
     private String workId;
-
+    /**
+     * 月份参数
+     */
     private String month;
+    /**
+     * 每月天数
+     */
     private Integer dayNum;
 
     /**
@@ -138,22 +135,6 @@ public class HrAttendanceMonthVo extends BaseEntity {
         this.postName = postName;
     }
 
-    public String getEngageForm() {
-        return engageForm;
-    }
-
-    public void setEngageForm(String engageForm) {
-        this.engageForm = engageForm;
-    }
-
-    public String getWorkState() {
-        return workState;
-    }
-
-    public void setWorkState(String workState) {
-        this.workState = workState;
-    }
-
     public String getWorkId() {
         return workId;
     }
@@ -194,6 +175,14 @@ public class HrAttendanceMonthVo extends BaseEntity {
         this.dayNum = dayNum;
     }
 
+    public String getDeptName() {
+        return deptName;
+    }
+
+    public void setDeptName(String deptName) {
+        this.deptName = deptName;
+    }
+
     @Override
     public String toString() {
         return new ToStringBuilder(this, ToStringStyle.MULTI_LINE_STYLE)
@@ -204,8 +193,7 @@ public class HrAttendanceMonthVo extends BaseEntity {
                 .append("deptId", getDeptId())
                 .append("postId", getPostId())
                 .append("postName", getPostName())
-                .append("engageForm", getEngageForm())
-                .append("workState", getWorkState())
+                .append("deptName", getDeptName())
                 .append("workId", getWorkId())
                 .append("attendanceList", getAttendanceList())
                 .toString();

@@ -3,6 +3,7 @@ package com.diandian.hr.controller;
 import java.util.List;
 import javax.servlet.http.HttpServletResponse;
 
+import cn.hutool.core.date.DateUtil;
 import com.diandian.hr.domain.vo.HrAttendanceMonthVo;
 import com.diandian.hr.domain.vo.HrAttendanceVo;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -115,5 +116,22 @@ public class HrAttendanceController extends BaseController
         startPage();
         List<HrAttendanceMonthVo> list = hrAttendanceService.selectMonthOfHrAttendanceList(hrAttendanceMonthVo);
         return getDataTable(list);
+    }
+
+    /**
+     * 员工月考勤数据统计
+     */
+    @PreAuthorize("@ss.hasPermi('hr:attendance:exportMonthList')")
+    @PostMapping("/exportMonthList")
+    public void exportMonthList(HttpServletResponse response, HrAttendanceVo hrAttendanceVo)
+    {
+        if (hrAttendanceVo.getMonth() == null) {
+            hrAttendanceVo.setMonth( DateUtil.format(new java.util.Date(), "yyyyMM"));
+        }
+        List<HrAttendanceVo> list = hrAttendanceService.selectHrAttendanceListCount(hrAttendanceVo);
+        ExcelUtil<HrAttendanceVo> util = new ExcelUtil<HrAttendanceVo>(HrAttendanceVo.class);
+
+        String yearMonth = hrAttendanceVo.getMonth().substring(0, 4) + "年" + hrAttendanceVo.getMonth().substring(4) + "月";
+        util.exportExcel(response, list, yearMonth + "考勤数据");
     }
 }

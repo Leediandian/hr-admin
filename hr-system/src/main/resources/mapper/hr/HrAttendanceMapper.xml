@@ -47,10 +47,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         where a.id = #{id}
     </select>
 
-    <select id="selectHrAttendanceByIdAndDay" resultMap="HrAttendanceResult">
-        <include refid="selectHrAttendanceVo"/>
-        where a.employee_id = #{id} and date_format(a.attendance_date,'%Y%m%d') = #{day}
-    </select>
 
     <insert id="insertHrAttendance" parameterType="HrAttendance" useGeneratedKeys="true" keyProperty="id">
         insert into hr_attendance
@@ -110,5 +106,22 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             #{id}
         </foreach>
     </delete>
+
+    <!-- 根据员工编号和日期查找月考勤数据 -->
+    <select id="selectHrAttendanceByIdAndDay" resultMap="HrAttendanceResult">
+        <include refid="selectHrAttendanceVo"/>
+        where a.employee_id = #{id} and date_format(a.attendance_date,'%Y%m%d') = #{day}
+    </select>
+
+    <!-- 根据员工编号和日期和状态查找月考勤数据 -->
+    <select id="countTimes" resultType="Integer">
+        select count(*) from hr_attendance
+        where employee_id = #{employeeId} and date_format(attendance_date,'%Y%m') = #{month} and attendance_status = #{status}
+    </select>
+    <!-- 根据员工编号和日期和状态查找月考勤 休假数据 -->
+    <select id="findLeaveDate" resultType="Date">
+        select attendance_date from hr_attendance
+        where employee_id = #{employeeId} and date_format(attendance_date,'%Y%m') = #{month} and attendance_status = #{status}
+    </select>
 
 </mapper>

@@ -3,6 +3,7 @@ package com.diandian.hr.mapper;
 import java.util.List;
 import com.diandian.hr.domain.HrEmployee;
 import com.diandian.hr.domain.vo.HrAttendanceMonthVo;
+import com.diandian.hr.domain.vo.HrAttendanceVo;
 
 /**
  * 员工档案管理Mapper接口
@@ -67,4 +68,12 @@ public interface HrEmployeeMapper
      * @return 结果
      */
     public int deleteHrEmployeeByEmployeeIds(Long[] employeeIds);
+
+    /**
+     * 查询员工档案管理列表
+     *
+     * @param hrAttendanceVo 员工考勤资料
+     * @return 返回员工列表 到 员工考勤表现列表
+     */
+    List<HrAttendanceVo> selectHrEmployeeListMonthCount(HrAttendanceVo hrAttendanceVo);
 }

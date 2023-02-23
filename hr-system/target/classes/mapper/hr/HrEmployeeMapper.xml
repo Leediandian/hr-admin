@@ -38,6 +38,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <association property="jobLevel"    column="job_level_id" javaType="HrJobLevel" resultMap="jobLevelResult" />
     </resultMap>
 
+    <!-- 员工每月考勤数据 -->
     <resultMap type="HrAttendanceMonthVo" id="HrAttendanceMonthVoResult">
         <result property="employeeId"    column="employee_id"    />
         <result property="employeeName"    column="name"    />
@@ -47,8 +48,19 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <result property="postName"    column="post_name"    />
         <result property="postId"    column="post_id"    />
         <result property="workId"    column="work_id"    />
-        <result property="workState"    column="work_state"    />
-        <result property="engageForm"    column="engage_form"    />
+        <result property="deptName"    column="dept_name"    />
+    </resultMap>
+    <!-- 员工每月考勤数据统计 -->
+    <resultMap type="HrAttendanceVo" id="HrAttendanceVoResult">
+        <result property="employeeId"    column="employee_id"    />
+        <result property="employeeName"    column="name"    />
+        <result property="phone"    column="phone"    />
+        <result property="address"    column="address"    />
+        <result property="deptId"    column="dept_id"    />
+        <result property="postName"    column="post_name"    />
+        <result property="postId"    column="post_id"    />
+        <result property="workId"    column="work_id"    />
+        <result property="deptName"    column="dept_name"    />
     </resultMap>
 
     <resultMap id="deptResult" type="SysDept">
@@ -132,7 +144,15 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     </select>
 
 
+    <!-- 员工月考勤数据列表 -->
     <select id="selectHrEmployeeListMonth" parameterType="HrAttendanceMonthVo" resultMap="HrAttendanceMonthVoResult">
+        <include refid="selectHrEmployeeVo"/>
+        <where>
+            <if test="employeeName != null  and employeeName != ''"> and e.name like concat('%', #{employeeName}, '%')</if>
+        </where>
+    </select>
+    <!-- 员工月考勤数据统计列表 -->
+    <select id="selectHrEmployeeListMonthCount" parameterType="HrAttendanceVo" resultMap="HrAttendanceVoResult">
         <include refid="selectHrEmployeeVo"/>
         <where>
             <if test="employeeName != null  and employeeName != ''"> and e.name like concat('%', #{employeeName}, '%')</if>

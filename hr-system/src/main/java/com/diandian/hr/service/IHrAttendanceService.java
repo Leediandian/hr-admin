@@ -1,21 +1,21 @@
 package com.diandian.hr.service;
 
 import java.util.List;
+
 import com.diandian.hr.domain.HrAttendance;
 import com.diandian.hr.domain.vo.HrAttendanceMonthVo;
 import com.diandian.hr.domain.vo.HrAttendanceVo;
 
 /**
  * 员工考勤管理Service接口
- * 
+ *
  * @author diandian
  * @date 2023-02-13
  */
-public interface IHrAttendanceService 
-{
+public interface IHrAttendanceService {
     /**
      * 查询员工考勤管理
-     * 
+     *
      * @param id 员工考勤管理主键
      * @return 员工考勤管理
      */
@@ -23,7 +23,7 @@ public interface IHrAttendanceService
 
     /**
      * 查询员工考勤管理列表
-     * 
+     *
      * @param hrAttendance 员工考勤管理
      * @return 员工考勤管理集合
      */
@@ -31,7 +31,7 @@ public interface IHrAttendanceService
 
     /**
      * 新增员工考勤管理
-     * 
+     *
      * @param hrAttendance 员工考勤管理
      * @return 结果
      */
@@ -39,7 +39,7 @@ public interface IHrAttendanceService
 
     /**
      * 修改员工考勤管理
-     * 
+     *
      * @param hrAttendance 员工考勤管理
      * @return 结果
      */
@@ -47,7 +47,7 @@ public interface IHrAttendanceService
 
     /**
      * 批量删除员工考勤管理
-     * 
+     *
      * @param ids 需要删除的员工考勤管理主键集合
      * @return 结果
      */
@@ -55,7 +55,7 @@ public interface IHrAttendanceService
 
     /**
      * 删除员工考勤管理信息
-     * 
+     *
      * @param id 员工考勤管理主键
      * @return 结果
      */
@@ -68,4 +68,12 @@ public interface IHrAttendanceService
      * @return 结果
      */
     List<HrAttendanceMonthVo> selectMonthOfHrAttendanceList(HrAttendanceMonthVo hrAttendanceMonthVo);
+
+    /**
+     * 员工月考勤数据统计
+     *
+     * @param hrAttendanceVo 员工考勤数据
+     * @return 结果 员工月考勤数据统计
+     */
+    List<HrAttendanceVo> selectHrAttendanceListCount(HrAttendanceVo hrAttendanceVo);
 }

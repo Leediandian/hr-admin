@@ -4,11 +4,11 @@ import java.sql.Date;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import com.diandian.common.utils.DateUtils;
 import com.diandian.hr.domain.HrEmployee;
 import com.diandian.hr.domain.vo.HrAttendanceMonthVo;
+import com.diandian.hr.domain.vo.HrAttendanceVo;
 import com.diandian.hr.mapper.HrEmployeeMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -154,9 +154,51 @@ public class HrAttendanceServiceImpl implements IHrAttendanceService
                 list.add(map);
             }
             empItem.setAttendanceList(list);
+            //每月天数
             empItem.setDayNum(list.size());
         }
         return emlist;
+    }
+
+    /**
+     * 员工月考勤数据统计
+     *
+     * @param hrAttendanceVo 员工考勤数据
+     * @return 结果
+     */
+    @Override
+    public List<HrAttendanceVo> selectHrAttendanceListCount(HrAttendanceVo hrAttendanceVo) {
+        // 如果没有指明月份，就默认显示当前月份的考勤数据
+        if (hrAttendanceVo.getMonth() == null) {
+            hrAttendanceVo.setMonth( DateUtil.format(new java.util.Date(), "yyyyMM"));
+        }
+        //获取员工列表
+        List<HrAttendanceVo> attendanceVolist = hrEmployeeMapper.selectHrEmployeeListMonthCount(hrAttendanceVo);
+
+        //迭代员工列表
+        for (HrAttendanceVo item : attendanceVolist) {
+            // 设置迟到次数
+            item.setLateTimes(hrAttendanceMapper.countTimes(item.getEmployeeId(),"1", hrAttendanceVo.getMonth()));
+            // 设置早退次数
+            item.setLeaveEarlyTimes(hrAttendanceMapper.countTimes(item.getEmployeeId(),"2", hrAttendanceVo.getMonth()));
+            // 设置旷工次数
+            item.setAbsenteeismTimes(hrAttendanceMapper.countTimes(item.getEmployeeId(),"3", hrAttendanceVo.getMonth()));
+            // 设置休假天数
+            List<Date> leaveDateList = hrAttendanceMapper.findLeaveDate(item.getEmployeeId(), "4", hrAttendanceVo.getMonth());
+
+            int count = 0;
+            for (Date date : leaveDateList) {
+                // 不包括周末
+                if (!DateUtil.isWeekend(date)) {
+                    count++;
+                }
+            }
+            item.setLeaveDays(count);
+
+
+
+        }
+        return attendanceVolist;
     }
 
 
