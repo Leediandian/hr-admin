@@ -2,7 +2,7 @@ package com.diandian.hr.domain;
 
 
 import java.util.Date;
-
+import com.alibaba.excel.annotation.ExcelProperty;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
@@ -26,11 +26,13 @@ public class HrAttendance extends BaseEntity {
      * 员工名称
      */
     @Excel(name = "员工名称")
+    @ExcelProperty("员工名称")
     private String employeeName;
 
     /**
      * 员工编号
      */
+    @ExcelProperty("员工编号")
     @Excel(name = "员工编号")
     private Long employeeId;
 
@@ -39,6 +41,7 @@ public class HrAttendance extends BaseEntity {
      */
     @JsonFormat(pattern = "HH:mm")
     @Excel(name = "上午上班时间", width = 30, dateFormat = "HH:mm")
+    @ExcelProperty("上午上班时间")
     private Date morStartTime;
 
     /**
@@ -46,6 +49,7 @@ public class HrAttendance extends BaseEntity {
      */
     @JsonFormat(pattern = "HH:mm")
     @Excel(name = "上午下班时间", width = 30, dateFormat = "HH:mm")
+    @ExcelProperty("上午下班时间")
     private Date morEndTime;
 
     /**
@@ -53,6 +57,7 @@ public class HrAttendance extends BaseEntity {
      */
     @JsonFormat(pattern = "HH:mm")
     @Excel(name = "下午上班时间", width = 30, dateFormat = "HH:mm")
+    @ExcelProperty("下午上班时间")
     private Date aftStartTime;
 
     /**
@@ -60,6 +65,7 @@ public class HrAttendance extends BaseEntity {
      */
     @JsonFormat(pattern = "HH:mm")
     @Excel(name = "下午下班时间", width = 30, dateFormat = "HH:mm")
+    @ExcelProperty("下午下班时间")
     private Date aftEndTime;
 
     /**
@@ -67,12 +73,12 @@ public class HrAttendance extends BaseEntity {
      */
     @JsonFormat(pattern = "yyyy-MM-dd")
     @Excel(name = "考勤日期", width = 30, dateFormat = "yyyy-MM-dd")
+    @ExcelProperty("考勤日期")
     private Date attendanceDate;
 
     /**
      * 考勤状态
      */
-    @Excel(name = "考勤状态", readConverterExp = "0正常，1迟到，2早退，3旷工，4休假")
     private String attendanceStatus;
 
     /**

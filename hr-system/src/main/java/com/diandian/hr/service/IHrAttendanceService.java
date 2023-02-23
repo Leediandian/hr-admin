@@ -2,6 +2,7 @@ package com.diandian.hr.service;
 
 import java.util.List;
 
+import com.diandian.common.core.domain.AjaxResult;
 import com.diandian.hr.domain.HrAttendance;
 import com.diandian.hr.domain.vo.HrAttendanceMonthVo;
 import com.diandian.hr.domain.vo.HrAttendanceVo;
@@ -76,4 +77,12 @@ public interface IHrAttendanceService {
      * @return 结果 员工月考勤数据统计
      */
     List<HrAttendanceVo> selectHrAttendanceListCount(HrAttendanceVo hrAttendanceVo);
+
+    /**
+     * 导入考勤数据
+     *
+     * @param list 员工考勤数据 excel
+     * @return 结果
+     */
+    AjaxResult importList(List<HrAttendance> list);
 }

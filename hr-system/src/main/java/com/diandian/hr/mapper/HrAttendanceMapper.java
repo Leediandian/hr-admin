@@ -24,10 +24,18 @@ public interface HrAttendanceMapper
     /**
      * 查询员工考勤管理
      *
-     * @param id 员工考勤管理主键 day 时间
+     * @param id 员工考勤管理主键 day 月份时间
      * @return 员工考勤管理
      */
     public HrAttendance selectHrAttendanceByIdAndDay(@Param("id") Long id, @Param("day") String day);
+
+    /**
+     * 查询员工考勤管理
+     *
+     * @param  hrAttendance
+     * @return 员工考勤管理
+     */
+    public HrAttendance selectHrAttendanceOne(HrAttendance hrAttendance);
 
     /**
      * 查询员工考勤管理列表

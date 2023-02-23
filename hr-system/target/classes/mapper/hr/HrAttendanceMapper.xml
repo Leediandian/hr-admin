@@ -40,6 +40,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="attendanceStatus != null "> and a.attendance_status = #{attendanceStatus}</if>
             <if test="isDeleted != null "> and a.is_deleted = #{isDeleted}</if>
         </where>
+        order by a.attendance_date desc
     </select>
 
     <select id="selectHrAttendanceById" parameterType="Long" resultMap="HrAttendanceResult">
@@ -59,9 +60,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="attendanceDate != null">attendance_date,</if>
             <if test="attendanceStatus != null">attendance_status,</if>
             <if test="remark != null">remark,</if>
-            <if test="createTime != null">create_time,</if>
-            <if test="updateTime != null">update_time,</if>
             <if test="isDeleted != null">is_deleted,</if>
+            create_time
          </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
             <if test="employeeId != null">#{employeeId},</if>
@@ -72,9 +72,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="attendanceDate != null">#{attendanceDate},</if>
             <if test="attendanceStatus != null">#{attendanceStatus},</if>
             <if test="remark != null">#{remark},</if>
-            <if test="createTime != null">#{createTime},</if>
-            <if test="updateTime != null">#{updateTime},</if>
             <if test="isDeleted != null">#{isDeleted},</if>
+            sysdate()
          </trim>
     </insert>
 
@@ -89,9 +88,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="attendanceDate != null">attendance_date = #{attendanceDate},</if>
             <if test="attendanceStatus != null">attendance_status = #{attendanceStatus},</if>
             <if test="remark != null">remark = #{remark},</if>
-            <if test="createTime != null">create_time = #{createTime},</if>
-            <if test="updateTime != null">update_time = #{updateTime},</if>
             <if test="isDeleted != null">is_deleted = #{isDeleted},</if>
+            update_time = sysdate()
         </trim>
         where id = #{id}
     </update>
@@ -106,6 +104,18 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             #{id}
         </foreach>
     </delete>
+
+
+    <!-- 根据员工编号和日期查找单条考勤数据 -->
+    <select id="selectHrAttendanceOne" parameterType="HrAttendance" resultMap="HrAttendanceResult">
+        select a.id, a.employee_id, a.mor_start_time, a.mor_end_time, a.aft_start_time, a.aft_end_time, a.attendance_date, a.attendance_status, a.remark, a.create_time, a.update_time, a.is_deleted
+        from hr_attendance a
+        <where>
+            <if test="employeeId != null "> and a.employee_id = #{employeeId}</if>
+            <if test="attendanceDate != null "> and date_format(a.attendance_date,'%Y%m%d') = #{attendanceDate}</if>
+            <if test="attendanceStatus != null "> and a.attendance_status = #{attendanceStatus}</if>
+        </where>
+    </select>
 
     <!-- 根据员工编号和日期查找月考勤数据 -->
     <select id="selectHrAttendanceByIdAndDay" resultMap="HrAttendanceResult">

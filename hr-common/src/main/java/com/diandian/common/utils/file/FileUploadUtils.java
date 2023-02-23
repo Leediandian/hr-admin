@@ -3,7 +3,11 @@ package com.diandian.common.utils.file;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Paths;
+import java.util.Arrays;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
+
 import org.apache.commons.io.FilenameUtils;
 import org.springframework.web.multipart.MultipartFile;
 import com.diandian.common.config.HrConfig;
@@ -114,7 +118,14 @@ public class FileUploadUtils
 
         String absPath = getAbsoluteFile(baseDir, fileName).getAbsolutePath();
         file.transferTo(Paths.get(absPath));
-        return getPathFileName(baseDir, fileName);
+//        return getPathFileName(baseDir, fileName);
+        if( useSet(allowedExtension,"xls") || useSet(allowedExtension,"xlsx")){
+            int dirLastIndex = HrConfig.getProfile().length() + 1;
+            String currentDir = StringUtils.substring(baseDir, dirLastIndex);
+            return   "/"+currentDir + "/" + fileName;
+        }else{
+            return getPathFileName(baseDir, fileName);
+        }
     }
 
     /**
@@ -228,5 +239,16 @@ public class FileUploadUtils
             extension = MimeTypeUtils.getExtension(Objects.requireNonNull(file.getContentType()));
         }
         return extension;
+    }
+
+    /**
+     * 判断字符串数组是否包含
+     * @param arr
+     * @param targetValue
+     * @return
+     */
+    public static boolean useSet(String [] arr, String targetValue){
+        Set<String> set = new HashSet<String>(Arrays.asList(arr));
+        return set.contains(targetValue);
     }
 }

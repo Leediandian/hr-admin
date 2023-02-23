@@ -1,21 +1,24 @@
 package com.diandian.hr.controller;
 
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.http.HttpServletResponse;
 
 import cn.hutool.core.date.DateUtil;
+import com.alibaba.excel.EasyExcel;
+import com.alibaba.excel.context.AnalysisContext;
+import com.alibaba.excel.event.SyncReadListener;
+import com.diandian.common.config.HrConfig;
+import com.diandian.common.exception.file.InvalidExtensionException;
+import com.diandian.common.utils.file.FileUploadUtils;
+import com.diandian.common.utils.file.MimeTypeUtils;
 import com.diandian.hr.domain.vo.HrAttendanceMonthVo;
 import com.diandian.hr.domain.vo.HrAttendanceVo;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import com.diandian.common.annotation.Log;
 import com.diandian.common.core.controller.BaseController;
 import com.diandian.common.core.domain.AjaxResult;
@@ -24,6 +27,7 @@ import com.diandian.hr.domain.HrAttendance;
 import com.diandian.hr.service.IHrAttendanceService;
 import com.diandian.common.utils.poi.ExcelUtil;
 import com.diandian.common.core.page.TableDataInfo;
+import org.springframework.web.multipart.MultipartFile;
 
 /**
  * 员工考勤管理Controller
@@ -133,5 +137,36 @@ public class HrAttendanceController extends BaseController
 
         String yearMonth = hrAttendanceVo.getMonth().substring(0, 4) + "年" + hrAttendanceVo.getMonth().substring(4) + "月";
         util.exportExcel(response, list, yearMonth + "考勤数据");
+    }
+
+    /**
+     * 导入考勤数据
+     */
+    @PreAuthorize("@ss.hasPermi('hr:attendance:import')")
+    @PostMapping("/import")
+    public AjaxResult importList(@RequestParam("importFile") MultipartFile importFile) throws IOException, InvalidExtensionException {
+        if (importFile != null) {
+            String fileName = FileUploadUtils.upload(HrConfig.getImportPath(), importFile, MimeTypeUtils.EXCEL_EXTENSION);
+            List<HrAttendance> list = new ArrayList<>();
+            EasyExcel.read(new File(HrConfig.getProfile()+fileName),HrAttendance.class,new SyncReadListener(){
+                @Override
+                public void invoke(Object object, AnalysisContext context) {
+                    list.add((HrAttendance) object);
+                }
+            }).doReadAll();
+            return hrAttendanceService.importList(list);
+        }
+        return error("上传文件异常，请联系管理员");
+    }
+
+
+    /**
+     * 生成导入考勤数据模板
+     */
+    @PostMapping("/importAttendanceTemplate")
+    public void importTemplate(HttpServletResponse response)
+    {
+        ExcelUtil<HrAttendance> util = new ExcelUtil<HrAttendance>(HrAttendance.class);
+        util.importTemplateExcel(response, "考勤数据");
     }
 }
