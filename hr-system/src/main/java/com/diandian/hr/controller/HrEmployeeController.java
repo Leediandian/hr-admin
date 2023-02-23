@@ -77,7 +77,7 @@ public class HrEmployeeController extends BaseController
     @PostMapping
     public AjaxResult add(@RequestBody HrEmployee hrEmployee)
     {
-        return toAjax(hrEmployeeService.insertHrEmployee(hrEmployee));
+        return hrEmployeeService.insertHrEmployee(hrEmployee);
     }
 
     /**

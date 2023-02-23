@@ -1,6 +1,8 @@
 package com.diandian.hr.service;
 
 import java.util.List;
+
+import com.diandian.common.core.domain.AjaxResult;
 import com.diandian.hr.domain.HrEmployee;
 
 /**
@@ -33,7 +35,7 @@ public interface IHrEmployeeService
      * @param hrEmployee 员工档案管理
      * @return 结果
      */
-    public int insertHrEmployee(HrEmployee hrEmployee);
+    public AjaxResult insertHrEmployee(HrEmployee hrEmployee);
 
     /**
      * 修改员工档案管理

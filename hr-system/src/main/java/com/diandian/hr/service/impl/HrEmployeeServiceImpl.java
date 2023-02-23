@@ -1,6 +1,8 @@
 package com.diandian.hr.service.impl;
 
 import java.util.List;
+
+import com.diandian.common.core.domain.AjaxResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.diandian.hr.mapper.HrEmployeeMapper;
@@ -50,9 +52,17 @@ public class HrEmployeeServiceImpl implements IHrEmployeeService
      * @return 结果
      */
     @Override
-    public int insertHrEmployee(HrEmployee hrEmployee)
+    public AjaxResult insertHrEmployee(HrEmployee hrEmployee)
     {
-        return hrEmployeeMapper.insertHrEmployee(hrEmployee);
+        HrEmployee item = new HrEmployee();
+        item.setWorkId(hrEmployee.getWorkId());
+        List<HrEmployee> list  =hrEmployeeMapper.selectHrEmployeeList(hrEmployee);
+        if(list.size()==0){
+            return AjaxResult.error("工号已存在");
+        }
+        return hrEmployeeMapper.insertHrEmployee(hrEmployee) > 0 ? AjaxResult.success() : AjaxResult.error();
+
+
     }
 
     /**
