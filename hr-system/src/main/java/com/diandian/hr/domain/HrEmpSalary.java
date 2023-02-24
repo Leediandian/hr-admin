@@ -17,7 +17,7 @@ public class HrEmpSalary extends BaseEntity {
     /**
      * 员工薪资编号
      */
-    private Long id;
+    private Long empSalaryId;
 
     /**
      * 薪资账套名称
@@ -42,12 +42,12 @@ public class HrEmpSalary extends BaseEntity {
     @Excel(name = "薪资编号")
     private Long salaryId;
 
-    public void setId(Long id) {
-        this.id = id;
+    public Long getEmpSalaryId() {
+        return empSalaryId;
     }
 
-    public Long getId() {
-        return id;
+    public void setEmpSalaryId(Long empSalaryId) {
+        this.empSalaryId = empSalaryId;
     }
 
     public void setEmployeeId(Long employeeId) {
@@ -85,7 +85,7 @@ public class HrEmpSalary extends BaseEntity {
     @Override
     public String toString() {
         return new ToStringBuilder(this, ToStringStyle.MULTI_LINE_STYLE)
-                .append("id", getId())
+                .append("empSalaryId", getEmpSalaryId())
                 .append("employeeId", getEmployeeId())
                 .append("salaryId", getSalaryId())
                 .append("salaryName", getSalaryName())

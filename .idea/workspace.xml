@@ -3,11 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="fbfea2a8-b947-4fed-a68b-10442c9c2ff3" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hr-system/src/main/java/com/diandian/hr/controller/HrEmployeeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/hr-system/src/main/java/com/diandian/hr/controller/HrEmployeeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hr-system/src/main/java/com/diandian/hr/service/IHrEmployeeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/hr-system/src/main/java/com/diandian/hr/service/IHrEmployeeService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hr-system/src/main/java/com/diandian/hr/service/impl/HrEmployeeServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/hr-system/src/main/java/com/diandian/hr/service/impl/HrEmployeeServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hr-system/target/classes/com/diandian/hr/controller/HrEmployeeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/hr-system/target/classes/com/diandian/hr/controller/HrEmployeeController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hr-system/target/classes/com/diandian/hr/service/impl/HrEmployeeServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/hr-system/target/classes/com/diandian/hr/service/impl/HrEmployeeServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hr-system/src/main/java/com/diandian/hr/domain/HrEmpSalary.java" beforeDir="false" afterPath="$PROJECT_DIR$/hr-system/src/main/java/com/diandian/hr/domain/HrEmpSalary.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hr-system/src/main/resources/mapper/hr/HrEmpSalaryMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/hr-system/src/main/resources/mapper/hr/HrEmpSalaryMapper.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -86,6 +83,7 @@
       <workItem from="1677046176296" duration="2135000" />
       <workItem from="1677048365489" duration="17511000" />
       <workItem from="1677115209501" duration="25195000" />
+      <workItem from="1677209873507" duration="2832000" />
     </task>
     <servers />
   </component>

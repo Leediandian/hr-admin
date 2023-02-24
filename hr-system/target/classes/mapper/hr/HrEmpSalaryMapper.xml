@@ -5,7 +5,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="com.diandian.hr.mapper.HrEmpSalaryMapper">
     
     <resultMap type="HrEmpSalary" id="HrEmpSalaryResult">
-        <result property="id"    column="id"    />
+        <result property="empSalaryId"    column="emp_salary_id"    />
         <result property="employeeId"    column="employee_id"    />
         <result property="salaryId"    column="salary_id"    />
         <result property="createTime"    column="create_time"    />
@@ -15,7 +15,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     </resultMap>
 
     <sql id="selectHrEmpSalaryVo">
-        select s.id, s.employee_id, s.salary_id,s.create_time, s.update_time,
+        select s.emp_salary_id, s.employee_id, s.salary_id,s.create_time, s.update_time,
         e.name,sa.salary_name
         from hr_emp_salary s
         left join  hr_employee e on s.employee_id = e.employee_id
@@ -34,7 +34,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
     <select id="selectHrEmpSalaryById" parameterType="Long" resultMap="HrEmpSalaryResult">
         <include refid="selectHrEmpSalaryVo"/>
-        where s.id = #{id}
+        where s.emp_salary_id = #{empSalaryId}
     </select>
 
         
@@ -59,17 +59,17 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="salaryId != null">salary_id = #{salaryId},</if>
             update_time = sysdate()
         </trim>
-        where id = #{id}
+        where emp_salary_id = #{empSalaryId}
     </update>
 
     <delete id="deleteHrEmpSalaryById" parameterType="Long">
-        delete from hr_emp_salary where id = #{id}
+        delete from hr_emp_salary where emp_salary_id = #{empSalaryId}
     </delete>
 
     <delete id="deleteHrEmpSalaryByIds" parameterType="String">
-        delete from hr_emp_salary where id in 
-        <foreach item="id" collection="array" open="(" separator="," close=")">
-            #{id}
+        delete from hr_emp_salary where emp_salary_id in
+        <foreach item="empSalaryId" collection="array" open="(" separator="," close=")">
+            #{empSalaryId}
         </foreach>
     </delete>
 </mapper>
