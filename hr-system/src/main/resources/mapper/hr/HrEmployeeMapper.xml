@@ -266,4 +266,17 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             #{employeeId}
         </foreach>
     </delete>
+
+
+    <select id="countDept"  resultType="Integer">
+         SELECT COUNT(*) FROM hr_employee WHERE dept_id = #{deptId}
+    </select>
+
+    <select id="countNotWork" resultType="Integer">
+         SELECT COUNT(*) FROM hr_employee WHERE date_format(not_work_date,'%Y%m') = #{month}
+    </select>
+    <select id="countBeginWork" resultType="Integer">
+         SELECT COUNT(*) FROM hr_employee WHERE date_format(begin_date,'%Y%m') = #{month}
+    </select>
+
 </mapper>

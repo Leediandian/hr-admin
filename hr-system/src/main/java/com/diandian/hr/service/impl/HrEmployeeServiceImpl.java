@@ -56,8 +56,8 @@ public class HrEmployeeServiceImpl implements IHrEmployeeService
     {
         HrEmployee item = new HrEmployee();
         item.setWorkId(hrEmployee.getWorkId());
-        List<HrEmployee> list  =hrEmployeeMapper.selectHrEmployeeList(hrEmployee);
-        if(list.size()==0){
+        List<HrEmployee> list  = hrEmployeeMapper.selectHrEmployeeList(hrEmployee);
+        if(list.size()>0){
             return AjaxResult.error("工号已存在");
         }
         return hrEmployeeMapper.insertHrEmployee(hrEmployee) > 0 ? AjaxResult.success() : AjaxResult.error();
